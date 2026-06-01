@@ -4,63 +4,95 @@ import path from "node:path";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
-async function getRubricMarkdown() {
+const registrationUrl =
+  process.env.NEXT_PUBLIC_REGISTRATION_URL ??
+  "https://docs.google.com/forms/d/e/1FAIpQLSfAEOa4r4wSEHkiNMPox2bEan6Ljok5Be_xa6SqrgGPmHMH2Q/viewform?usp=header";
+
+const csWaUrl = process.env.NEXT_PUBLIC_CS_WA_URL ?? "6282112920756";
+
+type MarkdownDoc = {
+  id: string;
+  title: string;
+  content: string;
+};
+
+function toTitle(filename: string) {
+  return filename
+    .replace(/\.md$/i, "")
+    .replace(/[-_]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+async function getRubricDocuments(): Promise<MarkdownDoc[]> {
   try {
-    const filePath = path.join(
-      process.cwd(),
-      "Document Lomba",
-      "Rubric",
-      "Rubrik-Tahap-1-Kualifikasi-Kids.md"
+    const rubricDir = path.join(process.cwd(), "Document Lomba", "Rubric");
+    const entries = await fs.readdir(rubricDir, { withFileTypes: true });
+    const filenames = entries
+      .filter((entry) => entry.isFile() && entry.name.toLowerCase().endsWith(".md"))
+      .map((entry) => entry.name)
+      .sort((a, b) => a.localeCompare(b, "id"));
+
+    const docs = await Promise.all(
+      filenames.map(async (filename) => {
+        const content = await fs.readFile(path.join(rubricDir, filename), "utf8");
+        return {
+          id: filename,
+          title: toTitle(filename),
+          content
+        } satisfies MarkdownDoc;
+      })
     );
-    return await fs.readFile(filePath, "utf8");
+
+    return docs;
   } catch {
-    return "Rubrik belum tersedia.";
+    return [];
   }
 }
 
 const tracks = [
   {
-    name: "Kids1",
+    name: "Kids-I",
     age: "TK - Kelas 1 SD",
     description:
-      "Level dasar untuk peserta yang baru mulai mengenal logika, urutan instruksi, dan pola berpikir komputasional.",
+      "Fokus pada dasar logika dan interaksi sederhana. Peserta membuat karya yang punya menu, cara main, progres, dan ending.",
     details: [
-      "Babak kualifikasi lewat CBT logika/algoritma",
-      "Babak final membuat project sederhana",
-      "Fokus pada kreativitas, keberanian, dan ketelitian"
+      "Tahap 1: membuat game/aplikasi sederhana sesuai brief panitia",
+      "Tahap 2 (Final): karya lebih rapi + presentasi singkat",
+      "Platform: Scratch / Code.org / Roblox Studio"
     ]
   },
   {
-    name: "Kids2",
+    name: "Kids-II",
     age: "Kelas 2 - Kelas 3 SD",
     description:
-      "Dirancang untuk peserta yang sudah mulai nyaman berpikir terstruktur dan siap tantangan lebih variatif.",
+      "Fokus pada aturan main yang jelas, skor/progres yang konsisten, dan tantangan (waktu/nyawa/rintangan) yang bisa diuji.",
     details: [
-      "Evaluasi logika dan penyelesaian masalah yang lebih beragam",
-      "Final membuat project interaktif sederhana",
-      "Mendorong konsistensi, fokus, dan ide yang orisinal"
+      "Tahap 1: karya interaktif dengan skor/progres",
+      "Tahap 2 (Final): tantangan lebih terasa + presentasi singkat",
+      "Platform: Scratch / Code.org / Roblox Studio"
     ]
   },
   {
     name: "Junior-I",
     age: "Kelas 4 - Kelas 5 SD",
     description:
-      "Tantangan yang mendorong peserta berpikir lebih kritis, cepat, dan percaya diri saat merancang solusi.",
+      "Fokus pada kontrol, balancing, dan struktur state/scene. Karya dinilai dari gameplay yang konsisten dan rapi saat diuji.",
     details: [
-      "Soal kualifikasi menekankan logika, analisis, dan strategi",
-      "Final membuat project dengan alur yang lebih kompleks",
-      "Memberi ruang menunjukkan problem solving terbaik"
+      "Tahap 1: game dengan rintangan + menang/kalah yang tegas",
+      "Tahap 2 (Final): game arcade yang mendorong high-score + design notes",
+      "Platform: Scratch / Code.org / Roblox Studio"
     ]
   },
   {
     name: "Junior-II",
     age: "Kelas 6 SD - SMP",
     description:
-      "Level tertinggi untuk peserta yang siap menyusun solusi lebih matang dan mempresentasikan hasil dengan percaya diri.",
+      "Fokus pada sistem objektif bertahap, ancaman dinamis, dan fitur khusus (power-up/inventory/cooldown) yang terstruktur.",
     details: [
-      "Kualifikasi fokus pada analisis kasus dan ketepatan solusi",
-      "Final menantang peserta membuat project yang terstruktur",
-      "Menguji akurasi, kreativitas, dan manajemen waktu"
+      "Tahap 1: misi + progres yang jelas dengan aturan konsisten",
+      "Tahap 2 (Final): objective berurutan + dokumentasi singkat",
+      "Platform: Scratch / Code.org / Roblox Studio"
     ]
   }
 ] as const;
@@ -180,7 +212,7 @@ const faqs = [
 ] as const;
 
 export default async function Home() {
-  const rubricMarkdown = await getRubricMarkdown();
+  const rubricDocs = await getRubricDocuments();
   return (
     <main className="shell">
       <header className="topbar">
@@ -216,10 +248,20 @@ export default async function Home() {
             </p>
 
             <div className="hero__actions">
-              <a className="btn btn--primary" href="#kategori">
-                Lihat kategori
+              <a
+                className="btn btn--primary"
+                href={csWaUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Hubungi Kami
               </a>
-              <a className="btn btn--secondary" href="#cta">
+              <a
+                className="btn btn--secondary"
+                href={registrationUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
                 Daftar sekarang
               </a>
             </div>
@@ -419,12 +461,46 @@ export default async function Home() {
       <section className="section" id="rubrik">
         <div className="container">
           <div className="section__header">
-            <h2>Rubrik Penilaian (Kualifikasi)</h2>
+            <h2>Rubrik Penilaian</h2>
           </div>
-          <div className="panel markdown">
-            <ReactMarkdown remarkPlugins={[remarkGfm]}>
-              {rubricMarkdown}
-            </ReactMarkdown>
+          <div className="accordion-list">
+            {rubricDocs.length === 0 ? (
+              <article className="panel">
+                <h3 style={{ marginTop: 0 }}>Rubrik belum tersedia</h3>
+                <p style={{ marginBottom: 0 }}>
+                  Belum ada file rubrik di folder <code>Document Lomba/Rubric</code>.
+                </p>
+              </article>
+            ) : (
+              rubricDocs.map((doc, index) => (
+                <details className="panel accordion" key={doc.id} open={index === 0}>
+                  <summary className="accordion__summary">
+                    <strong>{doc.title}</strong>
+                    <span className="accordion__chev" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                        <path
+                          d="M6.7 9.3a1 1 0 0 1 1.4 0L12 13.2l3.9-3.9a1 1 0 1 1 1.4 1.4l-4.6 4.6a1 1 0 0 1-1.4 0l-4.6-4.6a1 1 0 0 1 0-1.4Z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </span>
+                  </summary>
+                  <div className="markdown accordion__content">
+                    <div className="accordion__toolbar">
+                      <a
+                        className="btn btn--secondary accordion__download"
+                        href={`/api/pdf?type=rubric&file=${encodeURIComponent(doc.id)}`}
+                      >
+                        Download PDF
+                      </a>
+                    </div>
+                    <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                      {doc.content}
+                    </ReactMarkdown>
+                  </div>
+                </details>
+              ))
+            )}
           </div>
         </div>
       </section>
@@ -460,8 +536,13 @@ export default async function Home() {
               <a className="btn btn--primary" href="#home">
                 Kembali ke atas
               </a>
-              <a className="btn btn--secondary" href="#kategori">
-                Lihat kategori
+              <a
+                className="btn btn--secondary"
+                href={registrationUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Daftar sekarang
               </a>
             </div>
           </article>
