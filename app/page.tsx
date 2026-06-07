@@ -3,6 +3,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { SiteHeader } from "@/components/site-header";
 
 const registrationUrl =
   process.env.NEXT_PUBLIC_REGISTRATION_URL ??
@@ -52,73 +53,61 @@ async function getRubricDocuments(): Promise<MarkdownDoc[]> {
 
 const tracks = [
   {
-    name: "Kids-I",
-    age: "TK - Kelas 1 SD",
-    description:
-      "Fokus pada dasar logika dan interaksi sederhana. Peserta membuat karya yang punya menu, cara main, progres, dan ending.",
-    details: [
-      "Tahap 1: membuat game/aplikasi sederhana sesuai brief panitia",
-      "Tahap 2 (Final): karya lebih rapi + presentasi singkat",
-      "Platform: Scratch / Code.org / Roblox Studio"
-    ]
-  },
-  {
-    name: "Kids-II",
-    age: "Kelas 2 - Kelas 3 SD",
-    description:
-      "Fokus pada aturan main yang jelas, skor/progres yang konsisten, dan tantangan (waktu/nyawa/rintangan) yang bisa diuji.",
-    details: [
-      "Tahap 1: karya interaktif dengan skor/progres",
-      "Tahap 2 (Final): tantangan lebih terasa + presentasi singkat",
-      "Platform: Scratch / Code.org / Roblox Studio"
-    ]
-  },
-  {
     name: "Junior-I",
-    age: "Kelas 4 - Kelas 5 SD",
+    age: "TK - Kelas 2 SD",
     description:
-      "Fokus pada kontrol, balancing, dan struktur state/scene. Karya dinilai dari gameplay yang konsisten dan rapi saat diuji.",
+      "Fokus pada kesederhanaan, dasar alur interaksi yang lancar, kreativitas visual/cerita orisinal, serta keberanian anak dalam menjelaskan karyanya.",
     details: [
-      "Tahap 1: game dengan rintangan + menang/kalah yang tegas",
-      "Tahap 2 (Final): game arcade yang mendorong high-score + design notes",
-      "Platform: Scratch / Code.org / Roblox Studio"
+      "Range level: TK, Kelas 1, dan Kelas 2",
+      "Tahap 1 (Kualifikasi): Membuat game/animasi interaktif responsif, bebas crash, dengan modifikasi visual khas buatan anak.",
+      "Tahap 2 (Final): Pengembangan karya agar lebih rapi secara visual + sesi presentasi/tanya jawab langsung untuk menguji rasa percaya diri anak."
     ]
   },
   {
     name: "Junior-II",
-    age: "Kelas 6 SD - SMP",
+    age: "Kelas 3 - Kelas 5 SD",
     description:
-      "Fokus pada sistem objektif bertahap, ancaman dinamis, dan fitur khusus (power-up/inventory/cooldown) yang terstruktur.",
+      "Fokus pada logika aturan main (kondisional dasar), kelengkapan fitur utama (skor/kondisi menang-kalah), mekanik tantangan yang seru, serta kerapian susunan kode.",
     details: [
-      "Tahap 1: misi + progres yang jelas dengan aturan konsisten",
-      "Tahap 2 (Final): objective berurutan + dokumentasi singkat",
-      "Platform: Scratch / Code.org / Roblox Studio"
+      "Range level: Kelas 3, Kelas 4, dan Kelas 5",
+      "Tahap 1 (Kualifikasi): Membuat karya dengan tantangan jelas (rintangan/waktu) dan susunan skrip/blok kode yang tertata rapi.",
+      "Tahap 2 (Final): Optimalisasi fitur mekanik agar berfungsi konsisten + sesi demo teknis untuk menguji pemahaman mandiri anak terhadap kode mereka."
+    ]
+  },
+  {
+    name: "Junior-III",
+    age: "Kelas 6 SD - SMP Kelas 2",
+    description:
+      "Fokus pada efisiensi sistem logika (variabel/perulangan/fungsi), stabilitas aplikasi (bebas bug/error handling), keunikan konsep UI/UX, dan kemampuan argumentasi teknis.",
+    details: [
+      "Range level: Kelas 6, SMP Kelas 1, dan SMP Kelas 2",
+      "Tahap 1 (Kualifikasi): Membangun aplikasi/game tuntas dengan struktur algoritma yang efisien dan desain antarmuka yang harmonis.",
+      "Tahap 2 (Final): Penyempurnaan detail logika sistem + presentasi mendalam menggunakan istilah teknis untuk mempertahankan orisinalitas karya di depan juri."
     ]
   }
 ] as const;
 
 const ticketLevels = [
-  "Kids1",
-  "Kids2",
   "Junior-I",
-  "Junior-II"
+  "Junior-II",
+  "Junior-III"
 ] as const;
 
 const ticketRows = [
   {
     ticket: "Early Bird",
     period: "1 - 30 November 2024",
-    prices: ["Rp.100.000,-", "Rp.100.000,-", "Rp.100.000,-", "Rp.100.000,-"]
+    prices: ["Rp.100.000,-", "Rp.100.000,-", "Rp.100.000,-"]
   },
   {
     ticket: "PreSale",
     period: "1 - 22 Desember 2024",
-    prices: ["Rp.150.000,-", "Rp.150.000,-", "Rp.150.000,-", "Rp.150.000,-"]
+    prices: ["Rp.150.000,-", "Rp.150.000,-", "Rp.150.000,-"]
   },
   {
     ticket: "Sale",
     period: "23 - 25 Desember 2024",
-    prices: ["Rp.200.000,-", "Rp.200.000,-", "Rp.200.000,-", "Rp.200.000,-"]
+    prices: ["Rp.200.000,-", "Rp.200.000,-", "Rp.200.000,-"]
   }
 ] as const;
 
@@ -197,7 +186,7 @@ const faqs = [
   {
     question: "Siapa yang bisa ikut?",
     answer:
-      "Peserta dibagi ke empat level: Kids1, Kids2, Junior-I, dan Junior-II, sehingga lomba bisa diikuti sesuai jenjang."
+      "Peserta dibagi ke tiga level: Junior-I untuk TK sampai Kelas 2, Junior-II untuk Kelas 3 sampai Kelas 5, dan Junior-III untuk Kelas 6 sampai SMP Kelas 2."
   },
   {
     question: "Apa platform yang dipakai?",
@@ -215,23 +204,15 @@ export default async function Home() {
   const rubricDocs = await getRubricDocuments();
   return (
     <main className="shell">
-      <header className="topbar">
-        <div className="container topbar__inner">
-          <a className="brand" href="#home" aria-label="JTC">
-            <span className="brand__mark">J</span>
-            <span>JTC</span>
-          </a>
-          <nav className="nav" aria-label="Navigasi utama">
-            <a href="#kategori">Kategori</a>
-            <a href="#harga">Harga</a>
-            <a href="#aplikasi">Aplikasi</a>
-            <a href="#benefit">Benefit</a>
-            <a href="#alur">Alur</a>
-            <a href="#rubrik">Rubrik</a>
-            <a href="#faq">FAQ</a>
-          </nav>
-        </div>
-      </header>
+      <SiteHeader
+        brandHref="#home"
+        links={[
+          { href: "#kategori", label: "Kategori" },
+          { href: "#harga", label: "Harga" },
+          { href: "#rubrik", label: "Rubrik" },
+          { href: "#faq", label: "FAQ" }
+        ]}
+      />
 
       <section className="hero" id="home">
         <div className="container hero__grid">
@@ -486,7 +467,10 @@ export default async function Home() {
                     </span>
                   </summary>
                   <div className="markdown accordion__content">
-                    <div className="accordion__toolbar">
+                    <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                      {doc.content}
+                    </ReactMarkdown>
+                      <div className="accordion__toolbar">
                       <a
                         className="btn btn--secondary accordion__download"
                         href={`/api/pdf?type=rubric&file=${encodeURIComponent(doc.id)}`}
@@ -494,9 +478,6 @@ export default async function Home() {
                         Download PDF
                       </a>
                     </div>
-                    <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                      {doc.content}
-                    </ReactMarkdown>
                   </div>
                 </details>
               ))
@@ -521,33 +502,34 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="section" id="cta">
-        <div className="container">
-          <article className="cta">
-            <div>
-              <h2>Siap bikin anak tampil percaya diri lewat coding?</h2>
-              <p>
-                Landing page JTC ini sudah dibuat dengan struktur yang siap
-                dipakai. Kalau kamu mau, kita bisa lanjut isi detail asli seperti
-                tanggal lomba final, link formulir, dan kontak panitia.
-              </p>
-            </div>
-            <div className="cta__actions">
-              <a className="btn btn--primary" href="#home">
-                Kembali ke atas
-              </a>
-              <a
-                className="btn btn--secondary"
-                href={registrationUrl}
-                target="_blank"
-                rel="noreferrer"
-              >
-                Daftar sekarang
-              </a>
-            </div>
-          </article>
-        </div>
-      </section>
+<section className="section" id="cta">
+  <div className="container">
+    <article className="cta">
+      <div>
+        <h2>Siap Menjadi Digital Creator Masa Depan?</h2>
+        <p>
+          Jangan lewatkan kesempatan emas untuk menguji logika, mengasah kreativitas, 
+          dan menyalurkan bakat coding anak di ajang Junior Tech Competition. Tunjukkan 
+          karya digital terbaikmu!
+        </p>
+      </div>
+      <div className="cta__actions">
+        <a className="btn btn--secondary" href="#tracks">
+          Lihat Kategori Lomba
+        </a>
+        <a
+          className="btn btn--primary"
+          href={registrationUrl}
+          target="_blank"
+          rel="noreferrer"
+        >
+          Daftar Kualifikasi Sekarang
+        </a>
+      </div>
+    </article>
+  </div>
+</section>
+
 
       <footer className="footer">
         <div className="container footer__inner">

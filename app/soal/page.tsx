@@ -2,6 +2,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { SiteHeader } from "@/components/site-header";
 
 type PageProps = {
   searchParams?: Promise<Record<string, string | string[] | undefined>>;
@@ -53,14 +54,7 @@ export default async function SoalPage({ searchParams }: PageProps) {
   if (!isAllowed) {
     return (
       <main className="shell">
-        <header className="topbar">
-          <div className="container topbar__inner">
-            <a className="brand" href="/" aria-label="JTC">
-              <span className="brand__mark">J</span>
-              <span>JTC</span>
-            </a>
-          </div>
-        </header>
+        <SiteHeader links={[{ href: "/", label: "Beranda" }]} />
 
         <section className="section">
           <div className="container">
@@ -96,17 +90,7 @@ export default async function SoalPage({ searchParams }: PageProps) {
 
   return (
     <main className="shell">
-      <header className="topbar">
-        <div className="container topbar__inner">
-          <a className="brand" href="/" aria-label="JTC">
-            <span className="brand__mark">J</span>
-            <span>JTC</span>
-          </a>
-          <nav className="nav" aria-label="Navigasi soal">
-            <a href="/">Beranda</a>
-          </nav>
-        </div>
-      </header>
+      <SiteHeader links={[{ href: "/", label: "Beranda" }]} />
 
       <section className="section">
         <div className="container">
