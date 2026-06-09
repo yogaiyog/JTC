@@ -89,7 +89,7 @@ export function QuestionRandomizer({ levels }: QuestionRandomizerProps) {
         </ul>
       </article>
 
-      <div className="grid-3 question-bank">
+      {/* <div className="grid-3 question-bank">
         {levels.map((level) => (
           <article className="track" key={level.id}>
             <div className="track__meta">
@@ -104,7 +104,7 @@ export function QuestionRandomizer({ levels }: QuestionRandomizerProps) {
             </ul>
           </article>
         ))}
-      </div>
+      </div> */}
     </section>
   );
 }

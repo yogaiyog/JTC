@@ -4,6 +4,7 @@ import path from "node:path";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { SiteHeader } from "@/components/site-header";
+import { timelinePhases } from "@/lib/timeline-data";
 
 const registrationUrl =
   process.env.NEXT_PUBLIC_REGISTRATION_URL ??
@@ -93,21 +94,51 @@ const ticketLevels = [
   "Junior-III"
 ] as const;
 
+function formatTimelineDate(date: string) {
+  return new Date(`${date}T00:00:00`).toLocaleDateString("id-ID", {
+    day: "numeric",
+    month: "long",
+    year: "numeric"
+  });
+}
+
+function formatTimelinePeriod(start: string, end: string) {
+  const startDate = new Date(`${start}T00:00:00`);
+  const endDate = new Date(`${end}T00:00:00`);
+  const sameDay = start === end;
+  const sameMonth =
+    startDate.getFullYear() === endDate.getFullYear() &&
+    startDate.getMonth() === endDate.getMonth();
+
+  if (sameDay) {
+    return formatTimelineDate(start);
+  }
+
+  if (sameMonth) {
+    return `${startDate.getDate()} - ${endDate.getDate()} ${endDate.toLocaleDateString("id-ID", {
+      month: "long",
+      year: "numeric"
+    })}`;
+  }
+
+  return `${formatTimelineDate(start)} - ${formatTimelineDate(end)}`;
+}
+
 const ticketRows = [
   {
     ticket: "Early Bird",
-    period: "1 - 30 November 2024",
+    period: formatTimelinePeriod("2026-07-06", "2026-07-20"),
+    prices: ["Rp.60.000,-", "Rp.60.000,-", "Rp.60.000,-"]
+  },
+  {
+    ticket: "Presale",
+    period: formatTimelinePeriod("2026-07-21", "2026-08-03"),
+    prices: ["Rp.80.000,-", "Rp.80.000,-", "Rp.80.000,-"]
+  },
+  {
+    ticket: "Regular Sale",
+    period: formatTimelinePeriod("2026-08-04", "2026-08-17"),
     prices: ["Rp.100.000,-", "Rp.100.000,-", "Rp.100.000,-"]
-  },
-  {
-    ticket: "PreSale",
-    period: "1 - 22 Desember 2024",
-    prices: ["Rp.150.000,-", "Rp.150.000,-", "Rp.150.000,-"]
-  },
-  {
-    ticket: "Sale",
-    period: "23 - 25 Desember 2024",
-    prices: ["Rp.200.000,-", "Rp.200.000,-", "Rp.200.000,-"]
   }
 ] as const;
 
@@ -131,7 +162,7 @@ const apps = [
     appName: "Python",
     description:
       "Boleh digunakan untuk peserta yang ingin membangun solusi berbasis coding teks.",
-    extras: ["Coding teks", "Problem solving", "Lebih menantang"]
+    extras: ["Coding teks", "Problem solving"]
   }
 ] as const;
 
@@ -144,38 +175,42 @@ const benefits = [
   "Komunitas belajar yang suportif"
 ] as const;
 
-const timeline = [
-  {
-    title: "Pendaftaran dibuka",
-    date: "2 Juni 2026",
-    description:
-      "Calon peserta mengisi formulir, memilih kategori sesuai jenjang, lalu menyiapkan data lomba."
-  },
-  {
-    title: "Masuk grup informasi",
-    date: "20 Juni 2026",
-    description:
-      "Peserta dan orang tua bergabung ke grup komunikasi untuk mendapatkan update, pengumuman, dan panduan teknis."
-  },
-  {
-    title: "Technical meeting",
-    date: "27 Juni 2026",
-    description:
-      "Panitia menjelaskan alur lomba, aturan, serta simulasi jalannya babak kualifikasi dan final."
-  },
-  {
-    title: "Babak kualifikasi",
-    date: "4 Juli 2026",
-    description:
-      "Peserta mengerjakan tes logika/algoritma sebagai tahap awal menuju babak final."
-  },
-  {
-    title: "Babak final",
-    date: "5 Juli 2026",
-    description:
-      "Finalis terbaik masuk ke sesi pembuatan project menggunakan aplikasi yang diizinkan untuk menunjukkan ide dan kemampuan terbaik mereka."
-  }
-] as const;
+const heroTimeline = timelinePhases
+  .filter((phase) =>
+    [
+      "pre-launch",
+      "early-bird-registration",
+      "presale-registration",
+      "regular-sale-registration",
+      "hari-h-lomba"
+    ].includes(phase.id)
+  )
+  .map((phase) => ({
+    title: phase.title,
+    date: formatTimelinePeriod(phase.start, phase.end)
+  }));
+
+const timeline = timelinePhases
+  .filter((phase) =>
+    [
+      "early-bird-registration",
+      "presale-registration",
+      "regular-sale-registration",
+      "administrasi",
+      "technical-meeting-1",
+      "hari-h-lomba"
+    ].includes(phase.id)
+  )
+  .map((phase) => ({
+    title:
+      phase.id === "administrasi"
+        ? "Masuk Group WA Informasi"
+        : phase.id === "technical-meeting-1"
+          ? "Technical Meeting"
+          : phase.title,
+    date: formatTimelinePeriod(phase.start, phase.end),
+    description: phase.activities.join(", ")
+  }));
 
 const faqs = [
   {
@@ -209,6 +244,7 @@ export default async function Home() {
         links={[
           { href: "#kategori", label: "Kategori" },
           { href: "#harga", label: "Harga" },
+          // { href: "/timeline", label: "Timeline" },
           { href: "#rubrik", label: "Rubrik" },
           { href: "#faq", label: "FAQ" }
         ]}
@@ -257,7 +293,7 @@ export default async function Home() {
                   <h4 className="device__title">Ringkasan timeline</h4>
                 </div>
                 <div className="hero-timeline" aria-label="Ringkasan timeline">
-                  {timeline.map((item, index) => (
+                  {heroTimeline.map((item, index) => (
                     <article className="hero-timeline-item" key={item.title}>
                       <div className="hero-timeline-item__index">
                         {String(index + 1).padStart(2, "0")}
@@ -353,7 +389,6 @@ export default async function Home() {
                 </div>
                 <div className="app-card__body">
                   <div className="track__meta">
-                    <span className="pill">Aplikasi diperbolehkan</span>
                     <span className="pill">{item.appName}</span>
                   </div>
                   <p>{item.description}</p>

@@ -9,13 +9,17 @@ type SiteHeaderProps = {
 };
 
 const trainingLinks: NavLink[] = [
+  // {
+  //   href: "/timeline",
+  //   label: "Timeline"
+  // },
   {
     href: "/latihan/submit-karya",
     label: "Submit Karya"
   },
   {
     href: "/latihan/ngerjain-soal",
-    label: "Ngerjain Soal"
+    label: "Try out Soal"
   }
 ];
 

@@ -1,3 +1,5 @@
+@import "../node_modules/frappe-gantt/src/styles/gantt.css";
+
 :root {
   --bg: #07111f;
   --bg-soft: rgba(10, 19, 35, 0.72);
@@ -1245,6 +1247,155 @@ main {
   margin-top: 1rem;
 }
 
+.timeline-hero {
+  display: grid;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background:
+    radial-gradient(circle at top left, rgba(124, 231, 255, 0.12), transparent 28%),
+    radial-gradient(circle at right bottom, rgba(255, 207, 93, 0.12), transparent 30%),
+    rgba(8, 16, 31, 0.82);
+}
+
+.timeline-hero__stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.timeline-chart-card {
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.timeline-chart {
+  min-height: 620px;
+  width: 100%;
+}
+
+.timeline-chart .gantt-container {
+  --g-arrow-color: rgba(183, 197, 223, 0.72);
+  --g-bar-color: rgba(124, 231, 255, 0.92);
+  --g-bar-border: rgba(124, 231, 255, 1);
+  --g-tick-color-thick: rgba(183, 197, 223, 0.22);
+  --g-tick-color: rgba(183, 197, 223, 0.1);
+  --g-actions-background: rgba(255, 255, 255, 0.08);
+  --g-border-color: rgba(183, 197, 223, 0.12);
+  --g-text-muted: #9bb0d5;
+  --g-text-light: #eef4ff;
+  --g-text-dark: #eef4ff;
+  --g-progress-color: rgba(255, 207, 93, 0.32);
+  --g-handle-color: #ffcf5d;
+  --g-weekend-label-color: rgba(255, 255, 255, 0.12);
+  --g-expected-progress: rgba(255, 207, 93, 0.24);
+  --g-header-background: rgba(7, 17, 31, 0.94);
+  --g-row-color: rgba(10, 18, 35, 0.92);
+  --g-row-border-color: rgba(183, 197, 223, 0.1);
+  --g-today-highlight: #ffcf5d;
+  --g-popup-actions: rgba(255, 255, 255, 0.08);
+  --g-weekend-highlight-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(193, 210, 255, 0.1);
+  border-radius: 24px;
+}
+
+.timeline-chart .bar-progress {
+  fill: rgba(255, 207, 93, 0.42);
+}
+
+.timeline-chart .bar--cyan .bar {
+  fill: rgba(124, 231, 255, 0.92);
+  stroke: rgba(124, 231, 255, 1);
+}
+
+.timeline-chart .bar--gold .bar {
+  fill: rgba(255, 207, 93, 0.92);
+  stroke: rgba(255, 207, 93, 1);
+}
+
+.timeline-chart .bar--gold .bar-progress {
+  fill: rgba(255, 143, 122, 0.35);
+}
+
+.timeline-chart .bar--coral .bar {
+  fill: rgba(255, 143, 122, 0.92);
+  stroke: rgba(255, 143, 122, 1);
+}
+
+.timeline-chart .bar-label {
+  fill: #04111f;
+  font-weight: 700;
+}
+
+.timeline-chart .popup-wrapper {
+  border: 1px solid rgba(193, 210, 255, 0.14);
+}
+
+.timeline-phase-list {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.timeline-phase-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  padding: 1.15rem 1.25rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(193, 210, 255, 0.1);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 48%),
+    rgba(8, 16, 31, 0.74);
+}
+
+.timeline-phase-card__index {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 18px;
+  background: rgba(124, 231, 255, 0.12);
+  color: var(--primary);
+  font-family: var(--font-display), sans-serif;
+  font-weight: 800;
+}
+
+.timeline-phase-card__content {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.timeline-phase-card__top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.timeline-phase-card__top h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.timeline-phase-card__top span {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.timeline-phase-card__content p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.timeline-phase-card__activities {
+  margin: 0.35rem 0 0;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: 0.45rem;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
 @media (max-width: 960px) {
   .hero__grid,
   .training-hero__panel,
@@ -1267,6 +1418,10 @@ main {
   }
 
   .level-switcher {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-hero__stats {
     grid-template-columns: 1fr;
   }
 }
@@ -1313,5 +1468,17 @@ main {
 
   .btn {
     width: 100%;
+  }
+
+  .timeline-chart-card {
+    padding: 0.75rem;
+  }
+
+  .timeline-chart {
+    min-height: 540px;
+  }
+
+  .timeline-phase-card {
+    grid-template-columns: 1fr;
   }
 }
