@@ -45,7 +45,7 @@ export const timelinePhases: TimelinePhase[] = [
     progress: 100,
     activities: [
       "Pembuatan CV/PT",
-      "Rekening bisnis",
+      "Rekening bisnis/ bank jago wallet kalau ga ada",
       "Invoice resmi",
       "Media kit sponsor"
     ]
@@ -85,7 +85,6 @@ export const timelinePhases: TimelinePhase[] = [
     activities: [
       "Follow-up sekolah",
       "Campaign media sosial",
-      "Webinar atau promosi",
       "Reminder pembayaran"
     ]
   },
@@ -108,8 +107,8 @@ export const timelinePhases: TimelinePhase[] = [
     end: "2026-08-20",
     progress: 100,
     activities: [
-      "Verifikasi pembayaran",
-      "Validasi data peserta",
+      "Final Check Verifikasi pembayaran",
+      "Final Check Validasi data peserta",
       "Finalisasi database peserta"
     ]
   },
@@ -120,7 +119,7 @@ export const timelinePhases: TimelinePhase[] = [
     end: "2026-08-21",
     progress: 100,
     activities: [
-      "Generate nomor peserta",
+      "Final Check Generate nomor peserta",
       "Pembagian grup WhatsApp atau Telegram",
       "Pengiriman email peserta resmi"
     ]
