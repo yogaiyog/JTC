@@ -55,7 +55,7 @@ async function getRubricDocuments(): Promise<MarkdownDoc[]> {
 const tracks = [
   {
     name: "Junior-I",
-    age: "TK - Kelas 2 SD",
+    age: "Kelas 1 - 3 SD",
     description:
       "Fokus pada kesederhanaan, dasar alur interaksi yang lancar, kreativitas visual/cerita orisinal, serta keberanian anak dalam menjelaskan karyanya.",
     details: [
@@ -66,7 +66,7 @@ const tracks = [
   },
   {
     name: "Junior-II",
-    age: "Kelas 3 - Kelas 5 SD",
+    age: "Kelas 4 - 6 SD",
     description:
       "Fokus pada logika aturan main (kondisional dasar), kelengkapan fitur utama (skor/kondisi menang-kalah), mekanik tantangan yang seru, serta kerapian susunan kode.",
     details: [
@@ -77,13 +77,13 @@ const tracks = [
   },
   {
     name: "Junior-III",
-    age: "Kelas 6 SD - SMP Kelas 2",
+    age: "Kelas 7 - 9 SMP",
     description:
-      "Fokus pada efisiensi sistem logika (variabel/perulangan/fungsi), stabilitas aplikasi (bebas bug/error handling), keunikan konsep UI/UX, dan kemampuan argumentasi teknis.",
+      "Fokus pada efisiensi sistem logika (variabel/perulangan/fungsi), stabilitas aplikasi, keunikan konsep UI/UX, dan kemampuan argumentasi teknis.",
     details: [
       "Range level: Kelas 6, SMP Kelas 1, dan SMP Kelas 2",
-      "Tahap 1 (Kualifikasi): Membangun aplikasi/game tuntas dengan struktur algoritma yang efisien dan desain antarmuka yang harmonis.",
-      "Tahap 2 (Final): Penyempurnaan detail logika sistem + presentasi mendalam menggunakan istilah teknis untuk mempertahankan orisinalitas karya di depan juri."
+      "Tahap 1 (Kualifikasi): Membangun aplikasi/game tuntas dengan struktur algoritma yang efisien dan desain antarmuka yang menarik.",
+      "Tahap 2 (Final): Membangun logika sistem + presentasi mendalam dan penggunaan istilah teknis di depan juri."
     ]
   }
 ] as const;
@@ -290,7 +290,7 @@ export default async function Home() {
                 <div className="device__top">
                 </div>
                 <div className="device__headline">
-                  <h4 className="device__title">Ringkasan timeline</h4>
+                  <h4 className="device__title">Timeline Summary</h4>
                 </div>
                 <div className="hero-timeline" aria-label="Ringkasan timeline">
                   {heroTimeline.map((item, index) => (
@@ -314,7 +314,7 @@ export default async function Home() {
       <section className="section" id="harga">
         <div className="container">
           <div className="section__header">
-            <h2>Biaya pendaftaran lomba</h2>
+            <h2>Biaya pendaftaran</h2>
           </div>
           <div className="table-wrap">
             <table className="pricing-table">
@@ -348,7 +348,7 @@ export default async function Home() {
       <section className="section" id="kategori">
         <div className="container">
           <div className="section__header">
-            <h2>Kategori lomba</h2>
+            <h2>Kategori</h2>
           </div>
           <div className="grid-3">
             {tracks.map((track) => (
@@ -374,7 +374,7 @@ export default async function Home() {
       <section className="section" id="aplikasi">
         <div className="container">
           <div className="section__header">
-            <h2>Aplikasi yang boleh digunakan</h2>
+            <h2>Aplikasi yang bisa digunakan</h2>
           </div>
           <div className="grid-3">
             {apps.map((item) => (
