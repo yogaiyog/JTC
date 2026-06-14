@@ -1,0 +1,3 @@
+export const URL_JUNIOR_I = '<iframe src="https://scratch.mit.edu/projects/1331605937/embed" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen></iframe>';
+export const URL_JUNIOR_II = '<iframe src="https://scratch.mit.edu/projects/1331771189/embed" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen></iframe>'; 
+export const URL_JUNIOR_III = '<iframe src="https://scratch.mit.edu/projects/1331643825/embed" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen></iframe>';

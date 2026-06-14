@@ -17,7 +17,7 @@ Setiap peserta mengerjakan 1 soal sesuai arahan panitia. Di bawah ini tersedia 5
 - Jika salah, muncul pesan "Coba lagi".
 
 ## Soal 3 - Lomba Balon
-- Buat game balon naik ke atas dan pemain harus menekannya.
+- Buat game balon dan pemain harus menekannya.
 - Setiap balon yang ditekan menambah skor.
 - Balon terus muncul selama permainan berjalan.
 - Tampilkan skor di layar.

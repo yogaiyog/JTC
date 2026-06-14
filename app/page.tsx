@@ -3,6 +3,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { HeroTimelineSummary } from "@/components/hero-timeline-summary";
 import { SiteHeader } from "@/components/site-header";
 import { timelinePhases } from "@/lib/timeline-data";
 
@@ -147,21 +148,21 @@ const apps = [
     image: "/scratch-icon-500x200-1.png",
     appName: "Scratch",
     description:
-      "Boleh digunakan untuk membuat game, animasi, dan project interaktif berbasis block code.",
+      "Scratch digunakan untuk membuat game, animasi, dan project interaktif berbasis block code.",
     extras: ["Interaktif", "Visual", "Ramah pemula"]
   },
   {
     image: "/app inventor.png",
     appName: "App Inventor",
     description:
-      "Boleh digunakan untuk membuat aplikasi mobile sederhana dengan logika blok.",
+      "App Inventor digunakan untuk membuat aplikasi mobile sederhana dengan logika blok.",
     extras: ["Mobile app", "Logika blok", "Kreatif"]
   },
   {
     image: "/python_logo_icon_168886.webp",
     appName: "Python",
     description:
-      "Boleh digunakan untuk peserta yang ingin membangun solusi berbasis coding teks.",
+      "Python digunakan untuk peserta yang ingin membangun solusi berbasis coding teks.",
     extras: ["Coding teks", "Problem solving"]
   }
 ] as const;
@@ -187,7 +188,9 @@ const heroTimeline = timelinePhases
   )
   .map((phase) => ({
     title: phase.title,
-    date: formatTimelinePeriod(phase.start, phase.end)
+    date: formatTimelinePeriod(phase.start, phase.end),
+    start: phase.start,
+    end: phase.end
   }));
 
 const timeline = timelinePhases
@@ -292,19 +295,7 @@ export default async function Home() {
                 <div className="device__headline">
                   <h4 className="device__title">Timeline Summary</h4>
                 </div>
-                <div className="hero-timeline" aria-label="Ringkasan timeline">
-                  {heroTimeline.map((item, index) => (
-                    <article className="hero-timeline-item" key={item.title}>
-                      <div className="hero-timeline-item__index">
-                        {String(index + 1).padStart(2, "0")}
-                      </div>
-                      <div className="hero-timeline-item__content">
-                        <span>{item.date}</span>
-                        <strong>{item.title}</strong>
-                      </div>
-                    </article>
-                  ))}
-                </div>
+                <HeroTimelineSummary items={heroTimeline} />
               </div>
             </div>
           </div>
@@ -540,17 +531,8 @@ export default async function Home() {
 <section className="section" id="cta">
   <div className="container">
     <article className="cta">
-      <div>
-        <h2>Siap Menjadi Digital Creator Masa Depan?</h2>
-        <p>
-          Jangan lewatkan kesempatan emas untuk menguji logika, mengasah kreativitas, 
-          dan menyalurkan bakat coding anak di ajang Junior Tech Competition. Tunjukkan 
-          karya digital terbaikmu!
-        </p>
-      </div>
-      <div className="cta__actions">
-        <a className="btn btn--secondary" href="#tracks">
-          Lihat Kategori Lomba
+        <a className="btn btn--secondary" href="#home">
+          Kembali ke atas
         </a>
         <a
           className="btn btn--primary"
@@ -558,9 +540,9 @@ export default async function Home() {
           target="_blank"
           rel="noreferrer"
         >
-          Daftar Kualifikasi Sekarang
+          Daftar Sekarang
         </a>
-      </div>
+
     </article>
   </div>
 </section>
@@ -569,7 +551,6 @@ export default async function Home() {
       <footer className="footer">
         <div className="container footer__inner">
           <span>JTC - Junior Tech Competition</span>
-          <span>Built with Next.js + TypeScript</span>
         </div>
       </footer>
     </main>

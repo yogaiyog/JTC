@@ -7,18 +7,34 @@ type CertificateViewProps = {
   noPeserta: string;
   nama: string;
   partai: string;
-  juara: string;
+  juara?: string;
+  cleanPath?: string;
+  badgeText?: string;
+  subtitle?: string;
+  description?: string;
+  footerTitle?: string;
+  statusLabel?: string;
+  statusValue?: string;
 };
 
 export function CertificateView({
   noPeserta,
   nama,
   partai,
-  juara
+  juara,
+  cleanPath = "/certificate",
+  badgeText = "JTC Session 1 Online",
+  subtitle = "Verifikasi sertifikat",
+  description = "Kamu telah mengikuti JTC Session 1 Online.",
+  footerTitle = "Junior Tech Competition Session 1 Online",
+  statusLabel = "Status",
+  statusValue
 }: CertificateViewProps) {
   useEffect(() => {
-    window.history.replaceState(window.history.state, "", "/certificate");
-  }, []);
+    window.history.replaceState(window.history.state, "", cleanPath);
+  }, [cleanPath]);
+
+  const finalStatusValue = statusValue ?? juara ?? "Terverifikasi";
 
   return (
     <main className="certificate-page">
@@ -31,18 +47,18 @@ export function CertificateView({
               <Image src="/logo.png" alt="Logo JTC" width={72} height={72} priority />
               <div>
                 <p>Junior Tech Competition</p>
-                <span>Verifikasi sertifikat</span>
+                <span>{subtitle}</span>
               </div>
             </div>
 
-            <div className="certificate-badge">JTC Session 1 Online</div>
+            <div className="certificate-badge">{badgeText}</div>
           </div>
 
           <div className="certificate-card__body">
             <p className="certificate-kicker">Selamat</p>
             <h2>{nama}</h2>
             <p className="certificate-description">
-              Kamu terverifikasi telah mengikuti <strong>JTC Session 1 Online</strong>.
+              {description}
             </p>
 
             <div className="certificate-award">{partai}</div>
@@ -57,8 +73,8 @@ export function CertificateView({
                 <strong>{partai}</strong>
               </div>
               <div className="certificate-meta__item">
-                <span>Status</span>
-                <strong>{juara}</strong>
+                <span>{statusLabel}</span>
+                <strong>{finalStatusValue}</strong>
               </div>
             </div>
           </div>
@@ -66,7 +82,7 @@ export function CertificateView({
           <div className="certificate-card__footer">
             <div>
               <span>Verifikasi sertifikat</span>
-              <strong>Junior Tech Competition Session 1 Online</strong>
+              <strong>{footerTitle}</strong>
             </div>
 
             <div className="certificate-signature">

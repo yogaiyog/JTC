@@ -506,6 +506,13 @@ main {
   border: 1px solid rgba(193, 210, 255, 0.09);
 }
 
+.hero-timeline-item--nearest {
+  background:
+    linear-gradient(135deg, rgba(124, 231, 255, 0.1), rgba(255, 207, 93, 0.08)),
+    rgba(255, 255, 255, 0.045);
+  border-color: rgba(124, 231, 255, 0.2);
+}
+
 .hero-timeline-item__index {
   display: grid;
   place-items: center;
@@ -532,6 +539,49 @@ main {
 .hero-timeline-item__content strong {
   font-size: 0.96rem;
   line-height: 1.35;
+}
+
+.hero-timeline-item__countdown {
+  display: grid;
+  gap: 0.55rem;
+  margin-top: 0.35rem;
+}
+
+.hero-timeline-item__countdown small {
+  color: var(--muted);
+  font-size: 0.73rem;
+  font-weight: 700;
+}
+
+.hero-timeline-item__countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.45rem;
+}
+
+.hero-timeline-item__countdown-box {
+  display: grid;
+  gap: 0.15rem;
+  min-width: 3.5rem;
+  padding: 0.5rem 0.4rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(193, 210, 255, 0.1);
+  text-align: center;
+}
+
+.hero-timeline-item__countdown-box b {
+  color: var(--accent);
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+}
+
+.hero-timeline-item__countdown-box span {
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 .hero-timeline__footer {
@@ -875,6 +925,94 @@ main {
 .doc-head__action {
   min-height: 2.9rem;
   padding: 0.7rem 1rem;
+}
+
+.soal-showcase-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.soal-showcase-card {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 1.25rem;
+  padding: 1.35rem;
+}
+
+.soal-showcase-card__content,
+.soal-showcase-card__heading {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.soal-showcase-card__level {
+  margin: 0;
+  color: var(--primary);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.soal-showcase-card__heading h3 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.soal-showcase-card__heading p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.soal-showcase-card__list {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.soal-showcase-card__example {
+  display: grid;
+  align-content: start;
+  gap: 0.85rem;
+}
+
+.soal-showcase-card__example-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.soal-showcase-card__example-head span {
+  color: var(--primary);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.soal-showcase-card__example-head strong {
+  font-size: 0.92rem;
+}
+
+.soal-showcase-card__embed {
+  overflow: hidden;
+  border-radius: 24px;
+  border: 1px solid rgba(193, 210, 255, 0.1);
+  background:
+    radial-gradient(circle at top left, rgba(124, 231, 255, 0.14), transparent 26%),
+    rgba(255, 255, 255, 0.04);
+  padding: 0.85rem;
+}
+
+.soal-showcase-card__embed iframe {
+  display: block;
+  width: 100%;
+  min-height: 26rem;
+  border: 0;
+  border-radius: 18px;
 }
 
 .feature h3,
@@ -1427,6 +1565,10 @@ main {
   .cta,
   .grid-3,
   .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .soal-showcase-card {
     grid-template-columns: 1fr;
   }
 
