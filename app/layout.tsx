@@ -18,6 +18,11 @@ export const metadata: Metadata = {
   title: "JTC | Junior Tech Competition",
   description:
     "Landing page resmi untuk event lomba coding anak JTC - Junior Tech Competition.",
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico"
+  },
   openGraph: {
     title: "JTC | Junior Tech Competition",
     description:

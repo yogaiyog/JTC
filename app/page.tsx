@@ -61,9 +61,8 @@ const tracks = [
       "Fokus pada kesederhanaan, dasar alur interaksi yang lancar, kreativitas visual/cerita orisinal, serta keberanian anak dalam menjelaskan karyanya.",
     details: [
       "Range level: TK, Kelas 1, dan Kelas 2",
-      "Tahap 1 (Kualifikasi): Membuat game/animasi interaktif responsif, bebas crash, dengan modifikasi visual khas buatan anak.",
-      "Tahap 2 (Final): Pengembangan karya agar lebih rapi secara visual + sesi presentasi/tanya jawab langsung untuk menguji rasa percaya diri anak."
-    ]
+      "Tahap  (Final): Membuat game/animasi interaktif responsif, bebas crash, dengan modifikasi visual khas buatan anak.",
+   ]
   },
   {
     name: "Junior-II",
@@ -239,6 +238,7 @@ const faqs = [
 ] as const;
 
 export default async function Home() {
+  const initialNow = Date.now();
   const rubricDocs = await getRubricDocuments();
   return (
     <main className="shell">
@@ -256,10 +256,10 @@ export default async function Home() {
       <section className="hero" id="home">
         <div className="container hero__grid">
           <div>
-            <div className="eyebrow">Junior Tech Competition</div>
+            <div className="eyebrow">Seasson-1 Online</div>
             <h1>
-      Battle of Young 
-              <span>Digital Coders</span>
+               Junior Tech
+              <span>Competition</span>
             </h1>
             <p>
               JTC adalah ajang perlombaan coding untuk peserta TK sampai SMP
@@ -295,7 +295,7 @@ export default async function Home() {
                 <div className="device__headline">
                   <h4 className="device__title">Timeline Summary</h4>
                 </div>
-                <HeroTimelineSummary items={heroTimeline} />
+                <HeroTimelineSummary items={heroTimeline} initialNow={initialNow} />
               </div>
             </div>
           </div>
@@ -345,9 +345,9 @@ export default async function Home() {
             {tracks.map((track) => (
               <article className="track" key={track.name}>
                 <div className="track__meta">
-                  <span className="pill">{track.age}</span>
+                  <span className="track__age">{track.age}</span>
                 </div>
-                <div>
+                <div className="track__body">
                   <h3>{track.name}</h3>
                   <p>{track.description}</p>
                 </div>
@@ -457,7 +457,6 @@ export default async function Home() {
                 <div className="timeline-item__content">
                   <span>{item.date}</span>
                   <h3>{item.title}</h3>
-                  <p>{item.description}</p>
                 </div>
               </article>
             ))}
@@ -499,9 +498,10 @@ export default async function Home() {
                       <div className="accordion__toolbar">
                       <a
                         className="btn btn--secondary accordion__download"
-                        href={`/api/pdf?type=rubric&file=${encodeURIComponent(doc.id)}`}
+                        href="/rulebook_junior_tech_competition.pdf"
+                        download
                       >
-                        Download PDF
+                        Download Rulebook PDF
                       </a>
                     </div>
                   </div>

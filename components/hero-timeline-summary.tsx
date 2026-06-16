@@ -11,6 +11,7 @@ type HeroTimelineItem = {
 
 type HeroTimelineSummaryProps = {
   items: HeroTimelineItem[];
+  initialNow: number;
 };
 
 function toStartDate(date: string) {
@@ -45,8 +46,8 @@ function getCountdownParts(target: Date, now: Date) {
   ];
 }
 
-export function HeroTimelineSummary({ items }: HeroTimelineSummaryProps) {
-  const [now, setNow] = useState(() => new Date());
+export function HeroTimelineSummary({ items, initialNow }: HeroTimelineSummaryProps) {
+  const [now, setNow] = useState(() => new Date(initialNow));
 
   useEffect(() => {
     const timer = window.setInterval(() => {

@@ -6,7 +6,7 @@
 
 ---
 
-## Junior-I (TK - SD Kelas 2)
+## Junior-I (SD Kelas 1 - SD Kelas 3)
 
 *Fokus Utama: Kesederhanaan, pemahaman dasar alur, dan keberanian bercerita.*
 
@@ -26,7 +26,7 @@
 
 ---
 
-## Junior-II (SD Kelas 3 - SD Kelas 5)
+## Junior-II (SD Kelas 4 - SD Kelas 6)
 
 *Fokus Utama: Logika aturan main (kondisional dasar), variasi fitur, dan kemandirian.*
 
@@ -34,7 +34,7 @@
 
 | Aspek & Bobot | Indikator Skor (Panduan Juri) |
 | :--- | :--- |
-| **Fungsi & Kelengkapan** *(Maks: 35)* | **28-35**: Semua fitur utama (tombol mulai, skor, kondisi menang/kalah) berfungsi sempurna tanpa bantuan peserta; **18-27**: Fitur utama ada, namun ada fungsi yang tidak konsisten (misal: skor tidak bertambah pada kondisi tertentu); **0-17**: Karya tidak bisa dimainkan atau fungsi utamanya rusak total. |
+| **Fungsi & Alur** *(Maks: 35)* | **28-35**: Semua fitur utama (tombol mulai, skor, kondisi menang/kalah) berfungsi sempurna tanpa bantuan peserta; **18-27**: Fitur utama ada, namun ada fungsi yang tidak konsisten (misal: skor tidak bertambah pada kondisi tertentu); **0-17**: Karya tidak bisa dimainkan atau fungsi utamanya rusak total. |
 | **Tantangan & Kreativitas** *(Maks: 25)* | **21-25**: Game/karya memiliki mekanik tantangan yang seru (ada rintangan, batas waktu, atau sistem level) dan ide cerita orisinal; **11-20**: Ada rintangan/tantangan tapi terlalu mudah/monoton, atau konsepnya terlalu mirip dengan contoh template umum; **0-10**: Tidak ada tantangan sama sekali (hanya animasi datar tanpa interaksi bermakna). |
 | **Kerapian Kode & Tampilan** *(Maks: 20)* | **16-20**: Blok kode/skrip tersusun rapi (tidak berantakan di layar kerja). Antarmuka (UI/UX) nyaman dilihat dan tombol mudah dipahami; **11-15**: Kode bekerja tapi berantakan (banyak blok mati/tidak terpakai). Desain grafis agak mengganggu navigasi user; **0-10**: Susunan kode super berantakan (susah dibaca juri) dan visual hancur. |
 | **Presentasi / Penjelasan** *(Maks: 20)* | **16-20**: Lancar menjelaskan aturan main, tahu fungsi tombol/skrip yang mereka buat, dan menjawab pertanyaan juri dengan yakin; **11-15**: Bisa menjelaskan alur program, tetapi kebingungan saat ditanya juri alasan memakai blok kode tertentu; **0-10**: Hanya membaca teks atau terlihat tidak paham dengan karyanya sendiri (indikasi kuat karya dibuatkan orang lain). |
@@ -46,7 +46,7 @@
 
 ---
 
-## Junior-III (SD Kelas 6 - SMP Kelas 2)
+## Junior-III (SMP Kelas 7 - SMP Kelas 9)
 
 *Fokus Utama: Struktur logika (variabel, perulangan, fungsi), efisiensi sistem, dan pemecahan masalah.*
 
@@ -54,7 +54,7 @@
 
 | Aspek & Bobot | Indikator Skor (Panduan Juri) |
 | :--- | :--- |
-| **Fungsi & Kelengkapan** *(Maks: 30)* | **24-30**: Program berjalan mulus, bebas dari *bug* minor, penanganan eror (*error handling*) baik, dan alur aplikasi tuntas hingga selesai; **15-23**: Aplikasi berfungsi, namun ditemukan *bug* yang mengganggu kenyamanan (misal: karakter menembus dinding, *game over* tidak mereset nilai); **0-14**: Program sering mengalami *crash* atau fungsi intinya gagal bekerja. |
+| **Fungsi & Alur** *(Maks: 30)* | **24-30**: Program berjalan mulus, bebas dari *bug* minor, penanganan eror (*error handling*) baik, dan alur aplikasi tuntas hingga selesai; **15-23**: Aplikasi berfungsi, namun ditemukan *bug* yang mengganggu kenyamanan (misal: karakter menembus dinding, *game over* tidak mereset nilai); **0-14**: Program sering mengalami *crash* atau fungsi intinya gagal bekerja. |
 | **Logika & Sistem (Algoritma)** *(Maks: 30)* | **24-30**: Penggunaan variabel, operator logika (`AND`/`OR`), perulangan (*loops*), atau teknik kloning objek sangat efisien dan terstruktur; **15-23**: Logika bekerja tetapi berbelit-belit (banyak modifikasi kode yang tidak efisien atau terjadi duplikasi kode berulang); **0-14**: Logika asal-asalan, banyak kode mati, atau sekadar *copy-paste* tanpa struktur yang jelas. |
 | **Kreativitas & Kerapian Tampilan** *(Maks: 20)* | **16-20**: Konsep karya segar dan unik. Desain antarmuka (UI) rapi, pemilihan warna harmonis, serta aset visual/suara mendukung tema; **11-15**: Karya fungsional tapi desain grafis standar, layout agak kaku, atau menggunakan aset yang tidak senada; **0-10**: Tampilan buruk, tulisan tidak terbaca, susunan visual mengganggu fungsi utama program. |
 | **Presentasi & Demo Teknis** *(Maks: 20)* | **16-20**: Mampu mendemonstrasikan karya dengan meyakinkan, menjelaskan struktur logika kode dengan istilah teknis yang tepat, dan tanggap menjawab pertanyaan juri; **11-15**: Menguasai presentasi produknya, tetapi kesulitan menjelaskan logika di balik kode/skripnya saat dicecar pertanyaan teknis; **0-10**: Tidak mampu menjelaskan cara kerja logika kode miliknya sendiri kepada juri. |

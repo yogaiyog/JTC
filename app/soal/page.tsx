@@ -14,7 +14,8 @@ type SoalShowcase = {
   title: string;
   description: string;
   checklist: string[];
-  exampleEmbed: string;
+  exampleEmbed?: string;
+  runtimeHref?: string;
 };
 
 const soalShowcase: SoalShowcase[] = [
@@ -49,7 +50,8 @@ const soalShowcase: SoalShowcase[] = [
       "Tambahkan validasi agar jumlah pesanan tidak kosong.",
       "Tampilkan ringkasan pesanan sebelum selesai."
     ],
-    exampleEmbed: URL_JUNIOR_III
+    exampleEmbed: URL_JUNIOR_III,
+    runtimeHref: "/soal/runtime"
   }
 ];
 
@@ -59,6 +61,7 @@ export default async function SoalPage({ searchParams }: PageProps) {
   const provided = resolvedSearchParams?.p;
   const providedValue = Array.isArray(provided) ? provided[0] : provided;
   const isAllowed = providedValue === password;
+  const passwordQuery = providedValue ? `?p=${encodeURIComponent(providedValue)}` : "";
 
   if (!isAllowed) {
     return (
@@ -69,7 +72,6 @@ export default async function SoalPage({ searchParams }: PageProps) {
           <div className="container">
             <div className="section__header">
               <h2>Halaman Soal</h2>
-              <p>Masukkan password untuk membuka soal dan contoh project.</p>
             </div>
             <article className="panel">
               <form method="get" className="grid-2" style={{ gap: "0.75rem" }}>
@@ -84,9 +86,7 @@ export default async function SoalPage({ searchParams }: PageProps) {
                   Buka
                 </button>
               </form>
-              <p style={{ margin: "0.9rem 0 0", color: "var(--muted)" }}>
-                Catatan: ini proteksi sederhana (bukan security kuat).
-              </p>
+
             </article>
           </div>
         </section>
@@ -102,10 +102,6 @@ export default async function SoalPage({ searchParams }: PageProps) {
         <div className="container">
           <div className="section__header">
             <h2>Soal dan Contoh Project</h2>
-            <p>
-              Tiga soal berikut ditampilkan bersama contoh project referensi agar peserta lebih mudah
-              memahami bentuk karya yang diharapkan.
-            </p>
           </div>
 
           <div className="soal-showcase-list">
@@ -131,10 +127,27 @@ export default async function SoalPage({ searchParams }: PageProps) {
                     <span>Contoh Project</span>
                     <strong>{item.level}</strong>
                   </div>
-                  <div
-                    className="soal-showcase-card__embed"
-                    dangerouslySetInnerHTML={{ __html: item.exampleEmbed }}
-                  />
+                  {item.exampleEmbed ? (
+                    <div
+                      className="soal-showcase-card__embed"
+                      dangerouslySetInnerHTML={{ __html: item.exampleEmbed }}
+                    />
+                  ) : null}
+                  {item.runtimeHref ? (
+                    <div className="webcontainer-card">
+                      <div className="webcontainer-card__header">
+                        <div>
+                          <span className="webcontainer-card__eyebrow">Terminal Base</span>
+                        </div>
+                        <a
+                          className="btn btn--secondary terminal-preview__reset"
+                          href={`${item.runtimeHref}${passwordQuery}`}
+                        >
+                          Buka Terminal Base
+                        </a>
+                      </div>
+                    </div>
+                  ) : null}
                 </div>
               </article>
             ))}
