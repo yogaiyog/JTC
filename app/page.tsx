@@ -52,7 +52,6 @@ async function getRubricDocuments(): Promise<MarkdownDoc[]> {
     return [];
   }
 }
-
 const tracks = [
   {
     name: "Junior-I",
@@ -60,8 +59,8 @@ const tracks = [
     description:
       "Fokus pada kesederhanaan, dasar alur interaksi yang lancar, kreativitas visual/cerita orisinal, serta keberanian anak dalam menjelaskan karyanya.",
     details: [
-      "Range level: TK, Kelas 1, dan Kelas 2",
-      "Tahap  (Final): Membuat game/animasi interaktif responsif, bebas crash, dengan modifikasi visual khas buatan anak.",
+      "Kategori: TK, Kelas 1, dan Kelas 2 SD",
+      "Babak Final: Membuat game atau animasi interaktif yang lancar (bebas crash) dengan desain visual buatan sendiri.",
    ]
   },
   {
@@ -70,9 +69,8 @@ const tracks = [
     description:
       "Fokus pada logika aturan main (kondisional dasar), kelengkapan fitur utama (skor/kondisi menang-kalah), mekanik tantangan yang seru, serta kerapian susunan kode.",
     details: [
-      "Range level: Kelas 3, Kelas 4, dan Kelas 5",
-      "Tahap 1 (Kualifikasi): Membuat karya dengan tantangan jelas (rintangan/waktu) dan susunan skrip/blok kode yang tertata rapi.",
-      "Tahap 2 (Final): Optimalisasi fitur mekanik agar berfungsi konsisten + sesi demo teknis untuk menguji pemahaman mandiri anak terhadap kode mereka."
+      "Kategori: Kelas 3, Kelas 4, dan Kelas 5 SD",
+      "Babak Kualifikasi & Final: Membuat karya dengan tantangan yang jelas (ada rintangan/batasan waktu) dan susunan kode yang rapi."
     ]
   },
   {
@@ -81,10 +79,8 @@ const tracks = [
     description:
       "Fokus pada efisiensi sistem logika (variabel/perulangan/fungsi), stabilitas aplikasi, keunikan konsep UI/UX, dan kemampuan argumentasi teknis.",
     details: [
-      "Range level: Kelas 6, SMP Kelas 1, dan SMP Kelas 2",
-      "Tahap 1 (Kualifikasi): Membangun aplikasi/game tuntas dengan struktur algoritma yang efisien dan desain antarmuka yang menarik.",
-      "Tahap 2 (Final): Membangun logika sistem + presentasi mendalam dan penggunaan istilah teknis di depan juri."
-    ]
+      "Kategori: Kelas 6 SD, Kelas 7, dan Kelas 8 SMP",
+      "Babak Kualifikasi & Final: Membuat aplikasi atau game utuh dengan logika pemrograman yang efisien serta tampilan yang menarik."]
   }
 ] as const;
 
@@ -126,19 +122,9 @@ function formatTimelinePeriod(start: string, end: string) {
 
 const ticketRows = [
   {
-    ticket: "Early Bird",
-    period: formatTimelinePeriod("2026-07-06", "2026-07-20"),
-    prices: ["Rp.60.000,-", "Rp.60.000,-", "Rp.60.000,-"]
-  },
-  {
-    ticket: "Presale",
-    period: formatTimelinePeriod("2026-07-21", "2026-08-03"),
-    prices: ["Rp.80.000,-", "Rp.80.000,-", "Rp.80.000,-"]
-  },
-  {
-    ticket: "Regular Sale",
-    period: formatTimelinePeriod("2026-08-04", "2026-08-17"),
-    prices: ["Rp.100.000,-", "Rp.100.000,-", "Rp.100.000,-"]
+    ticket: "Registrasi",
+    period: formatTimelinePeriod("2026-07-06", "2026-08-17"),
+    prices: ["Rp.120.000,-", "Rp.120.000,-", "Rp.120.000,-"]
   }
 ] as const;
 
@@ -148,21 +134,14 @@ const apps = [
     appName: "Scratch",
     description:
       "Scratch digunakan untuk membuat game, animasi, dan project interaktif berbasis block code.",
-    extras: ["Interaktif", "Visual", "Ramah pemula"]
-  },
-  {
-    image: "/app inventor.png",
-    appName: "App Inventor",
-    description:
-      "App Inventor digunakan untuk membuat aplikasi mobile sederhana dengan logika blok.",
-    extras: ["Mobile app", "Logika blok", "Kreatif"]
+    extras: ["Junior-I", "Junior-II", "Junior-III"]
   },
   {
     image: "/python_logo_icon_168886.webp",
     appName: "Python",
     description:
       "Python digunakan untuk peserta yang ingin membangun solusi berbasis coding teks.",
-    extras: ["Coding teks", "Problem solving"]
+    extras: ["Junior-III"]
   }
 ] as const;
 
@@ -175,13 +154,11 @@ const benefits = [
   "Komunitas belajar yang suportif"
 ] as const;
 
-const heroTimeline = timelinePhases
+const heroTimelineBase = timelinePhases
   .filter((phase) =>
     [
       "pre-launch",
-      "early-bird-registration",
-      "presale-registration",
-      "regular-sale-registration",
+      "registration",
       "hari-h-lomba"
     ].includes(phase.id)
   )
@@ -192,12 +169,12 @@ const heroTimeline = timelinePhases
     end: phase.end
   }));
 
+const heroTimeline = heroTimelineBase;
+
 const timeline = timelinePhases
   .filter((phase) =>
     [
-      "early-bird-registration",
-      "presale-registration",
-      "regular-sale-registration",
+      "registration",
       "administrasi",
       "technical-meeting-1",
       "hari-h-lomba"
@@ -223,7 +200,7 @@ const faqs = [
   {
     question: "Siapa yang bisa ikut?",
     answer:
-      "Peserta dibagi ke tiga level: Junior-I untuk TK sampai Kelas 2, Junior-II untuk Kelas 3 sampai Kelas 5, dan Junior-III untuk Kelas 6 sampai SMP Kelas 2."
+      "Peserta dibagi ke tiga level: Junior-I untuk SD Kelas 1 sampai Kelas 3, Junior-II untuk Kelas 4 sampai Kelas 6, dan Junior-III untuk Kelas 7 sampai SMP Kelas 9."
   },
   {
     question: "Apa platform yang dipakai?",
@@ -256,7 +233,7 @@ export default async function Home() {
       <section className="hero" id="home">
         <div className="container hero__grid">
           <div>
-            <div className="eyebrow">Seasson-1 Online</div>
+            <div className="eyebrow">JTC Online 1.0</div>
             <h1>
                Junior Tech
               <span>Competition</span>
@@ -365,7 +342,7 @@ export default async function Home() {
       <section className="section" id="aplikasi">
         <div className="container">
           <div className="section__header">
-            <h2>Aplikasi yang bisa digunakan</h2>
+            <h2>Tools</h2>
           </div>
           <div className="grid-3">
             {apps.map((item) => (
@@ -393,16 +370,6 @@ export default async function Home() {
                 </div>
               </article>
             ))}
-          </div>
-          <div className="grid-2" style={{ marginTop: "1rem" }}>
-            <article className="mini-card">
-              <strong>Alternatif aplikasi</strong>
-              <span>Selain daftar utama, Thunkable dan Roblox Studio juga bisa dipertimbangkan selama sesuai aturan panitia.</span>
-            </article>
-            <article className="mini-card">
-              <strong>Catatan</strong>
-              <span>Panitia berhak melakukan validasi agar aplikasi yang dipakai tetap sesuai ketentuan lomba.</span>
-            </article>
           </div>
         </div>
       </section>

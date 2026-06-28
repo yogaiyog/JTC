@@ -64,39 +64,20 @@ export const timelinePhases: TimelinePhase[] = [
     ]
   },
   {
-    id: "early-bird-registration",
-    title: "Early Bird Registration",
+    id: "registration",
+    title: "Registrasi Peserta",
     start: "2026-07-06",
-    end: "2026-07-20",
-    progress: 100,
-    activities: [
-      "Pembukaan pendaftaran Early Bird",
-      "Promosi media sosial",
-      "Outreach sekolah",
-      "Outreach tempat les coding"
-    ]
-  },
-  {
-    id: "presale-registration",
-    title: "Presale Registration",
-    start: "2026-07-21",
-    end: "2026-08-03",
-    progress: 100,
-    activities: [
-      "Follow-up sekolah",
-      "Campaign media sosial",
-      "Reminder pembayaran"
-    ]
-  },
-  {
-    id: "regular-sale-registration",
-    title: "Regular Sale Registration",
-    start: "2026-08-04",
     end: "2026-08-17",
     progress: 100,
     activities: [
-      "Last call pendaftaran",
+      "Pembukaan pendaftaran",
+      "Promosi media sosial",
+      "Outreach sekolah",
+      "Outreach tempat les coding",
+      "Follow-up sekolah",
+      "Campaign media sosial",
       "Reminder pembayaran",
+      "Last call pendaftaran",
       "Publikasi jumlah peserta sementara"
     ]
   },
@@ -177,7 +158,7 @@ export const timelinePhases: TimelinePhase[] = [
   },
   {
     id: "hari-h-lomba",
-    title: "Hari H Lomba",
+    title: "Pelaksanaan Lomba",
     start: "2026-08-30",
     end: "2026-08-30",
     progress: 100,

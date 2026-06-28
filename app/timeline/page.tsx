@@ -1,6 +1,17 @@
 import { SiteHeader } from "@/components/site-header";
 import { TimelineGantt } from "@/components/timeline-gantt";
 import { timelinePhases } from "@/lib/timeline-data";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Timeline Event | JTC Junior Tech Competition",
+  description: "Timeline lengkap event Junior Tech Competition dari pendaftaran hingga final.",
+  openGraph: {
+    title: "Timeline Event | JTC Junior Tech Competition",
+    description: "Timeline lengkap event Junior Tech Competition.",
+    type: "website"
+  }
+};
 
 function formatDate(date: string) {
   return new Date(`${date}T00:00:00`).toLocaleDateString("id-ID", {

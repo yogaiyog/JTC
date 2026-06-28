@@ -5,7 +5,8 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: ["/api/", "/soal"]
-    }
+      disallow: ["/api/", "/soal/"]
+    },
+    sitemap: "https://juniortechcompetition.web.id/sitemap.xml"
   };
 }

@@ -13,20 +13,51 @@ export type QuestionLevel = {
   questions: Question[];
 };
 
+export type TrainingVideo = {
+  id: string;
+  title: string;
+  description: string;
+  src: string;
+};
+
+export const trainingVideoSlides: TrainingVideo[] = [
+  {
+    id: "submit-karya",
+    title: "JUNIOR-I",
+    description: "Panduan pengerjaan soal lomba kelas 1-3 SD",
+    src:
+      process.env.NEXT_PUBLIC_JUNIOR_I ??
+      "https://www.youtube-nocookie.com/embed/M7lc1UVf-VE"
+  },
+  {
+    id: "ngerjain-soal",
+    title: "JUNIOR-II",
+    description: "Panduan pengerjaan soal lomba kelas 4-6 SD",
+    src:
+      process.env.NEXT_PUBLIC_JUNIOR_II ??
+      "https://www.youtube-nocookie.com/embed/M7lc1UVf-VE?start=32"
+  },
+  {
+    id: "tips-latihan",
+    title: "JUNIOR-III",
+    description: "Panduan pengerjaan soal lomba kelas 7-9 SMP",
+    src:
+      process.env.NEXT_PUBLIC_JUNIOR_III ??
+      "https://www.youtube-nocookie.com/embed/M7lc1UVf-VE?start=64"
+  }
+];
+
 export const trainingVideos = {
-  submitKarya:
-    process.env.NEXT_PUBLIC_SUBMIT_KARYA_VIDEO ??
-    "https://www.youtube-nocookie.com/embed/M7lc1UVf-VE",
-  ngerjainSoal:
-    process.env.NEXT_PUBLIC_NGERJAIN_SOAL_VIDEO ??
-    "https://www.youtube-nocookie.com/embed/M7lc1UVf-VE?start=32"
+  submitKarya: trainingVideoSlides[0].src,
+  ngerjainSoal: trainingVideoSlides[1].src,
+  tipsLatihan: trainingVideoSlides[2].src
 } as const;
 
 export const questionLevels: QuestionLevel[] = [
   {
     id: "junior-i",
     label: "Junior-I",
-    age: "TK - SD Kelas 2",
+    age: "SD Kelas 1 - SD Kelas 3",
     intro:
       "Latihan ringan untuk membiasakan peserta dengan gerak dasar, interaksi sederhana, dan tampilan yang mudah dipahami. Materi ini berbeda dari soal lomba resmi.",
     questions: [
@@ -85,7 +116,7 @@ export const questionLevels: QuestionLevel[] = [
   {
     id: "junior-ii",
     label: "Junior-II",
-    age: "SD Kelas 3 - SD Kelas 5",
+    age: "SD Kelas 4 - SD Kelas 6",
     intro:
       "Latihan menengah untuk membangun logika aturan, penghitungan skor, dan alur aplikasi yang lebih rapi. Materi ini bukan salinan soal resmi lomba.",
     questions: [
@@ -144,7 +175,7 @@ export const questionLevels: QuestionLevel[] = [
   {
     id: "junior-iii",
     label: "Junior-III",
-    age: "SD Kelas 6 - SMP Kelas 2",
+    age: "SMP Kelas 7 - SMP Kelas 9",
     intro:
       "Latihan lanjut untuk membiasakan peserta menyusun sistem, validasi, dan alur fitur yang lebih matang. Kontennya dibuat berbeda dari dokumen soal lomba.",
     questions: [

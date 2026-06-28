@@ -1,6 +1,20 @@
 import { QuestionRandomizer } from "@/components/question-randomizer";
 import { SiteHeader } from "@/components/site-header";
-import { questionLevels, trainingVideos } from "@/lib/training-content";
+import { TrainingVideoCarousel } from "@/components/training-video-carousel";
+import { questionLevels, trainingVideoSlides } from "@/lib/training-content";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Latihan Simulasi Soal | JTC Junior Tech Competition",
+  description: "Halaman latihan simulasi soal untuk peserta Junior Tech Competition dengan video panduan dan soal acak.",
+  keywords: ['lomba coding', 'kompetisi coding anak', 'belajar coding', 'junior tech competition'],
+  openGraph: {
+    title: "Latihan Simulasi Soal | JTC Junior Tech Competition",
+    description: "Halaman latihan simulasi soal untuk peserta Junior Tech Competition.",
+    type: "website",
+    url: 'https://juniortechcompetition.web.id'
+  }
+};
 
 const guidance = [
   "Pilih level Junior-I, Junior-II, atau Junior-III sesuai jenjang peserta.",
@@ -21,7 +35,6 @@ export default function NgerjainSoalPage() {
       <SiteHeader
         links={[
           { href: "/", label: "Beranda" },
-          { href: "/soal", label: "Soal" }
         ]}
       />
 
@@ -29,24 +42,14 @@ export default function NgerjainSoalPage() {
         <div className="container">
           <div className="section-card training-hero__panel">
             <div>
-              <span className="eyebrow">Simulasi Lomba</span>
+              {/* <span className="eyebrow">Simulasi Lomba</span> */}
               <h1 className="training-hero__title">Video panduan</h1>
               <p className="training-hero__text">
-                Berikut ini video panduan pengerjaan soal dan sumbisi project untuk persiapan lomba. Setelah menonton, kamu bisa langsung coba acak soal dan buat project sesuai persyaratan yang diberikan.
+                Berikut ini video panduan pengerjaan soal dan submit project untuk persiapan lomba.
               </p>
             </div>
 
-            <div className="video-card">
-              <div className="video-card__frame">
-                <iframe
-                  src={trainingVideos.ngerjainSoal}
-                  title="Panduan latihan ngerjain soal"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  allowFullScreen
-                />
-              </div>
-            </div>
+            <TrainingVideoCarousel videos={trainingVideoSlides} />
           </div>
         </div>
       </section>

@@ -1,4 +1,14 @@
 import { CertificateView } from "@/components/certificate-view";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Sertifikat JTC | Junior Tech Competition",
+  description: "Halaman sertifikat digital untuk peserta Junior Tech Competition.",
+  robots: {
+    index: false,
+    follow: false
+  }
+};
 
 type CertificatePageProps = {
   searchParams?: Promise<Record<string, string | string[] | undefined>>;

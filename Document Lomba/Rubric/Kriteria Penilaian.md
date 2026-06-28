@@ -2,15 +2,14 @@
 
 1. **Objektif**: Nilai berdasarkan hasil karya nyata yang ditunjukkan saat sesi uji bersama juri.
 2. **Mandiri**: Karya wajib bisa dicoba dan dijalankan langsung oleh juri tanpa bantuan instruksi/intervensi dari peserta.
-3. **Konsisten**: Standar penilaian fase kualifikasi ini disamakan dengan babak final untuk menjaga konsistensi nilai.
+3. **Konsisten**: Standar penilaian fase kualifikasi ini disamakan dengan babak final untuk menjaga konsistensi nilai.               
+                
+
 
 ---
 
-## Junior-I (SD Kelas 1 - SD Kelas 3)
+# Junior-I (SD Kelas 1 - SD Kelas 3)
 
-*Fokus Utama: Kesederhanaan, pemahaman dasar alur, dan keberanian bercerita.*
-
-### Tabel Penilaian Junior-I (Total: 100)
 
 | Aspek & Bobot | Indikator Skor (Panduan Juri) |
 | :--- | :--- |
@@ -19,18 +18,11 @@
 | **Kerapian Tampilan** *(Maks: 20)* | **16-20**: Karakter tidak saling bertumpuk acak, teks terbaca jelas, susunan dan ukuran visual proporsional; **11-15**: Penataan visual agak berantakan, tulisan terpotong, atau warna terlalu menabrak hingga sulit dilihat; **0-10**: Visual rusak, berantakan, atau tidak ditata sama sekali. |
 | **Presentasi & Penjelasan** *(Maks: 20)* | **16-20**: Anak berani bicara, percaya diri, dan bisa menjelaskan dengan kata-kata sendiri tentang "Karya ini bercerita tentang apa"; **11-15**: Anak malu-malu, pasif, dan perlu banyak dipancing dengan pertanyaan oleh juri untuk menceritakan karyanya; **0-10**: Anak diam sama sekali, menangis, atau tidak mau berbicara saat diuji. |
 
-### Patokan Cepat Junior-I
-- Karya bisa dimainkan atau dicoba sampai selesai.
-- Ide karya mudah dipahami oleh juri.
-- Peserta bisa menjelaskan hasilnya secara singkat.
 
 ---
 
-## Junior-II (SD Kelas 4 - SD Kelas 6)
+# Junior-II (SD Kelas 4 - SD Kelas 6)
 
-*Fokus Utama: Logika aturan main (kondisional dasar), variasi fitur, dan kemandirian.*
-
-### Tabel Penilaian Junior-II (Total: 100)
 
 | Aspek & Bobot | Indikator Skor (Panduan Juri) |
 | :--- | :--- |
@@ -39,18 +31,11 @@
 | **Kerapian Kode & Tampilan** *(Maks: 20)* | **16-20**: Blok kode/skrip tersusun rapi (tidak berantakan di layar kerja). Antarmuka (UI/UX) nyaman dilihat dan tombol mudah dipahami; **11-15**: Kode bekerja tapi berantakan (banyak blok mati/tidak terpakai). Desain grafis agak mengganggu navigasi user; **0-10**: Susunan kode super berantakan (susah dibaca juri) dan visual hancur. |
 | **Presentasi / Penjelasan** *(Maks: 20)* | **16-20**: Lancar menjelaskan aturan main, tahu fungsi tombol/skrip yang mereka buat, dan menjawab pertanyaan juri dengan yakin; **11-15**: Bisa menjelaskan alur program, tetapi kebingungan saat ditanya juri alasan memakai blok kode tertentu; **0-10**: Hanya membaca teks atau terlihat tidak paham dengan karyanya sendiri (indikasi kuat karya dibuatkan orang lain). |
 
-### Patokan Cepat Junior-II
-- Semua bagian utama karya berjalan dengan baik.
-- Tantangan atau aturan main di dalam karya terlihat jelas.
-- Peserta bisa menjelaskan cara kerja karya dengan cukup baik.
 
 ---
 
-## Junior-III (SMP Kelas 7 - SMP Kelas 9)
+# Junior-III (SMP Kelas 7 - SMP Kelas 9)
 
-*Fokus Utama: Struktur logika (variabel, perulangan, fungsi), efisiensi sistem, dan pemecahan masalah.*
-
-### Tabel Penilaian Junior-III (Total: 100)
 
 | Aspek & Bobot | Indikator Skor (Panduan Juri) |
 | :--- | :--- |
@@ -61,11 +46,3 @@
 
 ---
 
-## Panduan Konversi Skor Total Keseluruhan
-
-Juri dapat merujuk pada rentang nilai akhir berikut untuk menentukan kelayakan peserta:
-
-- **85 - 100 (Istimewa)**: Karya matang, mandiri, berkualitas tinggi, dan siap maju ke babak final tanpa catatan besar.
-- **70 - 84 (Bagus)**: Karya layak dan berfungsi baik. Hanya butuh sedikit polesan minor di bagian kerapian atau variasi fitur.
-- **50 - 69 (Cukup)**: Karya setengah jadi. Esensi coding dan logikanya ada, namun eksekusinya masih memiliki banyak kekurangan.
-- **0 - 49 (Kurang)**: Karya belum siap dilombakan, banyak komponen rusak, atau terindikasi kuat bukan hasil karya asli anak sendiri.
