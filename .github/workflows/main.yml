@@ -17,12 +17,20 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           script: |
+            set -e
+
             cd ~/JTC
 
+            echo "Pulling latest code..."
             git pull origin main
 
-            npm ci
+            echo "Installing dependencies..."
+            npm install --omit=dev
 
+            echo "Building app..."
             npm run build
 
-            pm2 reload all || pm2 start npm --name "next-app" -- start
+            echo "Restarting PM2..."
+            pm2 restart next-app || pm2 start npm --name "next-app" -- run start
+
+            pm2 save
