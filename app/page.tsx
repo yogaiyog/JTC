@@ -59,7 +59,7 @@ const tracks = [
     description:
       "Fokus pada kesederhanaan, dasar alur interaksi yang lancar, kreativitas visual/cerita orisinal, serta keberanian anak dalam menjelaskan karyanya.",
     details: [
-      "Kategori: TK, Kelas 1, dan Kelas 2 SD",
+      "Kategori: Kelas 1, Kelas 2 SD, dan Kelas 3 SD",
       "Babak Final: Membuat game atau animasi interaktif yang lancar (bebas crash) dengan desain visual buatan sendiri.",
    ]
   },
@@ -239,7 +239,7 @@ export default async function Home() {
               <span>Competition</span>
             </h1>
             <p>
-              JTC adalah ajang perlombaan coding untuk peserta TK sampai SMP
+              JTC adalah ajang perlombaan coding untuk peserta SD sampai SMP
               yang menguji logika, kreativitas, dan ketepatan problem solving
               melalui babak kualifikasi hingga final project.
             </p>
@@ -284,31 +284,16 @@ export default async function Home() {
           <div className="section__header">
             <h2>Biaya pendaftaran</h2>
           </div>
-          <div className="table-wrap">
-            <table className="pricing-table">
-              <thead>
-                <tr>
-                  <th>Tiket</th>
-                  <th>Waktu</th>
-                  {ticketLevels.map((level) => (
-                    <th key={level}>{level}</th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {ticketRows.map((row) => (
-                  <tr key={row.ticket}>
-                    <td>
-                      <strong>{row.ticket}</strong>
-                    </td>
-                    <td>{row.period}</td>
-                    {row.prices.map((price, index) => (
-                      <td key={`${row.ticket}-${ticketLevels[index]}`}>{price}</td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <div className="pricing-list">
+            {ticketLevels.map((level, index) => (
+              <div className="pricing-item" key={level}>
+                <div className="pricing-item__header">
+                  <strong>{level}</strong>
+                  <span className="pricing-item__price">{ticketRows[0].prices[index]}</span>
+                </div>
+                <div className="pricing-item__period">{ticketRows[0].period}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
