@@ -198,27 +198,65 @@ const faqs = [
       "JTC adalah Junior Tech Competition, event lomba coding anak yang dirancang untuk melatih logika, kreativitas, dan problem solving."
   },
   {
-    question: "Siapa yang bisa ikut?",
+    question: "Siapa yang bisa ikut lomba coding ini?",
     answer:
-      "Peserta dibagi ke tiga level: Junior-I untuk SD Kelas 1 sampai Kelas 3, Junior-II untuk Kelas 4 sampai Kelas 6, dan Junior-III untuk Kelas 7 sampai SMP Kelas 9."
+      "Lomba coding anak JTC terbuka untuk semua siswa SD dan SMP. Terdapat tiga kategori lomba: Junior-I untuk SD Kelas 1-3, Junior-II untuk SD Kelas 4-6, dan Junior-III untuk SMP Kelas 7-9. Setiap kategori menyesuaikan tingkat kesulitan dengan usia peserta."
   },
   {
-    question: "Apa platform yang dipakai?",
+    question: "Platform coding apa yang dipakai saat lomba?",
     answer:
       "Kualifikasi menggunakan tes logika/algoritma, lalu final dapat menggunakan aplikasi yang diizinkan seperti Scratch, App Inventor, atau Python."
   },
   {
-    question: "Apakah lombanya online?",
+    question: "Apakah lomba coding ini dilakukan secara online?",
     answer:
-      "Ya, landing page ini disiapkan untuk event online sehingga peserta dari mana pun bisa ikut dengan nyaman."
+      "Ya, JTC disiapkan untuk event online sehingga peserta dari mana pun bisa ikut dengan nyaman."
   }
 ] as const;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Event",
+  name: "Junior Tech Competition (JTC) 2026",
+  description:
+    "Lomba coding anak untuk SD hingga SMP. Kompetisi programming yang menguji logika, kreativitas, dan problem solving melalui Scratch, Python, dan App Inventor.",
+  startDate: "2026-08-30",
+  endDate: "2026-08-30",
+  eventStatus: "https://schema.org/EventScheduled",
+  eventAttendanceMode: "https://schema.org/OnlineEventAttendanceMode",
+  location: {
+    "@type": "VirtualLocation",
+    url: "https://juniortechcompetition.web.id"
+  },
+  offers: {
+    "@type": "Offer",
+    price: "120000",
+    priceCurrency: "IDR",
+    availability: "https://schema.org/InStock",
+    validFrom: "2026-07-06",
+    url: "https://juniortechcompetition.web.id"
+  },
+  image: "https://juniortechcompetition.web.id/logo.png",
+  organizer: {
+    "@type": "Organization",
+    name: "Junior Tech Competition",
+    url: "https://juniortechcompetition.web.id"
+  },
+  audience: {
+    "@type": "Audience",
+    audienceType: "children"
+  }
+};
 
 export default async function Home() {
   const initialNow = Date.now();
   const rubricDocs = await getRubricDocuments();
   return (
     <main className="shell">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <SiteHeader
         brandHref="#home"
         links={[
@@ -238,11 +276,12 @@ export default async function Home() {
                Junior Tech
               <span>Competition</span>
             </h1>
-            <p>
-              JTC adalah ajang perlombaan coding untuk peserta SD sampai SMP
-              yang menguji logika, kreativitas, dan ketepatan problem solving
-              melalui babak kualifikasi hingga final project.
-            </p>
+             <p>
+               JTC adalah <strong>lomba coding anak</strong> untuk SD sampai
+               SMP. Kompetisi coding ini menguji logika, kreativitas, dan
+               problem solving melalui Scratch, Python, dan App Inventor,
+               mulai dari babak kualifikasi hingga final project.
+             </p>
 
             <div className="hero__actions">
               <a
@@ -301,8 +340,15 @@ export default async function Home() {
       <section className="section" id="kategori">
         <div className="container">
           <div className="section__header">
-            <h2>Kategori</h2>
+            <h2>Kategori Lomba Coding Anak</h2>
           </div>
+          {/* <p style={{ marginBottom: "2rem", maxWidth: "70ch" }}>
+            JTC menyediakan tiga kategori lomba coding yang disesuaikan dengan
+            jenjang pendidikan. Setiap kategori dalam kompetisi coding anak ini
+            memiliki tingkat kesulitan dan materi lomba programming yang
+            berbeda, dari pengenalan logika dasar hingga pemrograman teks
+            menggunakan Python.
+          </p> */}
           <div className="grid-3">
             {tracks.map((track) => (
               <article className="track" key={track.name}>

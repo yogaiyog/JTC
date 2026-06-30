@@ -15,15 +15,33 @@ const bodyFont = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "JTC | Junior Tech Competition - Lomba Coding Anak TK sampai SMP",
+  title: "JTC | Junior Tech Competition - Lomba Coding Anak SD SMP 2026",
   description:
-    "Junior Tech Competition (JTC) adalah lomba coding anak untuk TK sampai SMP. Kembangkan logika, kreativitas, dan problem solving melalui kompetisi yang seru dan edukatif.",
-  keywords: ["lomba coding anak", "coding competition", "junior tech competition", "lomba scratch", "lomba python", "kompetisi coding", "anak coding"],
+    "Junior Tech Competition (JTC) adalah lomba coding anak untuk SD dan SMP. Ikuti kompetisi coding seru dengan Scratch, Python, dan App Inventor. Kembangkan logika, kreativitas, dan problem solving putra-putri Anda.",
+  keywords: [
+    "lomba coding anak",
+    "lomba coding",
+    "kompetisi coding anak",
+    "lomba programming anak",
+    "lomba scratch anak",
+    "lomba python anak",
+    "coding competition for kids",
+    "junior tech competition",
+    "lomba coding SD",
+    "lomba coding SMP",
+    "kompetisi coding",
+    "anak coding",
+    "kursus coding anak",
+    "lomba komputer anak"
+  ],
   authors: [{ name: "JTC Team" }],
   creator: "JTC Team",
   publisher: "JTC",
   formatDetection: {
     telephone: false
+  },
+  alternates: {
+    canonical: "https://juniortechcompetition.web.id"
   },
   icons: {
     icon: "/favicon.ico",
