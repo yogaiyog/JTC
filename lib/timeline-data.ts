@@ -96,8 +96,8 @@ export const timelinePhases: TimelinePhase[] = [
   {
     id: "administrasi",
     title: "Administrasi",
-    start: "2026-08-21",
-    end: "2026-08-21",
+    start: "2026-07-06",
+    end: "2026-08-17",
     progress: 100,
     activities: [
       "Final Check Generate nomor peserta",

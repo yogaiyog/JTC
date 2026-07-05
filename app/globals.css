@@ -788,6 +788,13 @@ main {
   font-weight: 600;
 }
 
+.pricing-item__grade {
+  color: var(--primary);
+  font-size: 0.88rem;
+  font-weight: 600;
+  margin-bottom: 0.15rem;
+}
+
 .pricing-item__period {
   color: var(--muted);
   font-size: 0.95rem;
@@ -1949,10 +1956,19 @@ main {
 
   .hero {
     padding-top: 3.75rem;
+    text-align: center;
+  }
+
+  .hero__grid {
+    justify-items: center;
   }
 
   .hero h1 {
     max-width: 11ch;
+  }
+
+  .hero__actions {
+    justify-content: center;
   }
 
   .cta__actions {

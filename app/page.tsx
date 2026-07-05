@@ -59,7 +59,7 @@ const tracks = [
     description:
       "Fokus pada kesederhanaan, dasar alur interaksi yang lancar, kreativitas visual/cerita orisinal, serta keberanian anak dalam menjelaskan karyanya.",
     details: [
-      "Kategori: Kelas 1, Kelas 2 SD, dan Kelas 3 SD",
+     
       "Babak Final: Membuat game atau animasi interaktif yang lancar (bebas crash) dengan desain visual buatan sendiri.",
    ]
   },
@@ -69,7 +69,6 @@ const tracks = [
     description:
       "Fokus pada logika aturan main (kondisional dasar), kelengkapan fitur utama (skor/kondisi menang-kalah), mekanik tantangan yang seru, serta kerapian susunan kode.",
     details: [
-      "Kategori: Kelas 3, Kelas 4, dan Kelas 5 SD",
       "Babak Kualifikasi & Final: Membuat karya dengan tantangan yang jelas (ada rintangan/batasan waktu) dan susunan kode yang rapi."
     ]
   },
@@ -79,15 +78,14 @@ const tracks = [
     description:
       "Fokus pada efisiensi sistem logika (variabel/perulangan/fungsi), stabilitas aplikasi, keunikan konsep UI/UX, dan kemampuan argumentasi teknis.",
     details: [
-      "Kategori: Kelas 6 SD, Kelas 7, dan Kelas 8 SMP",
       "Babak Kualifikasi & Final: Membuat aplikasi atau game utuh dengan logika pemrograman yang efisien serta tampilan yang menarik."]
   }
 ] as const;
 
 const ticketLevels = [
-  "Junior-I",
-  "Junior-II",
-  "Junior-III"
+  { name: "Junior-I", grade: "Kelas 1–3 SD" },
+  { name: "Junior-II", grade: "Kelas 4–6 SD" },
+  { name: "Junior-III", grade: "Kelas 7–9 SMP" }
 ] as const;
 
 function formatTimelineDate(date: string) {
@@ -130,7 +128,7 @@ const ticketRows = [
 
 const apps = [
   {
-    image: "/scratch-icon-500x200-1.png",
+    image: "/scratch-icon-500x200-1.webp",
     appName: "Scratch",
     description:
       "Scratch digunakan untuk membuat game, animasi, dan project interaktif berbasis block code.",
@@ -272,10 +270,9 @@ export default async function Home() {
         <div className="container hero__grid">
           <div>
             <div className="eyebrow">JTC Online 1.0</div>
-            <h1>
-               Junior Tech
-              <span>Competition</span>
-            </h1>
+          <h1>
+  Junior Tech Competition<span>Lomba Coding Anak Nasional</span> 
+</h1>
              <p>
                JTC adalah <strong>lomba coding anak</strong> untuk SD sampai
                SMP. Kompetisi coding ini menguji logika, kreativitas, dan
@@ -321,15 +318,16 @@ export default async function Home() {
       <section className="section" id="harga">
         <div className="container">
           <div className="section__header">
-            <h2>Biaya pendaftaran</h2>
+            <h2>Biaya Pendaftaran Kompetisi Coding</h2>
           </div>
           <div className="pricing-list">
             {ticketLevels.map((level, index) => (
-              <div className="pricing-item" key={level}>
+              <div className="pricing-item" key={level.name}>
                 <div className="pricing-item__header">
-                  <strong>{level}</strong>
+                  <strong>{level.name}</strong>
                   <span className="pricing-item__price">{ticketRows[0].prices[index]}</span>
                 </div>
+                <div className="pricing-item__grade">{level.grade}</div>
                 <div className="pricing-item__period">{ticketRows[0].period}</div>
               </div>
             ))}
@@ -340,7 +338,7 @@ export default async function Home() {
       <section className="section" id="kategori">
         <div className="container">
           <div className="section__header">
-            <h2>Kategori Lomba Coding Anak</h2>
+            <h2>Kategori Lomba Programming Anak SD & SMP</h2>
           </div>
           {/* <p style={{ marginBottom: "2rem", maxWidth: "70ch" }}>
             JTC menyediakan tiga kategori lomba coding yang disesuaikan dengan
@@ -373,7 +371,7 @@ export default async function Home() {
       <section className="section" id="aplikasi">
         <div className="container">
           <div className="section__header">
-            <h2>Tools</h2>
+<h2>Platform & Bahasa Programming yang Diperlombakan</h2>
           </div>
           <div className="grid-3">
             {apps.map((item) => (
@@ -408,7 +406,7 @@ export default async function Home() {
       <section className="section" id="benefit">
         <div className="container">
           <div className="section__header">
-            <h2>Benefit peserta</h2>
+       <h2>Keuntungan & Fasilitas Peserta JTC 2026</h2>
           </div>
           <div className="grid-2">
             <div className="panel">
@@ -421,7 +419,7 @@ export default async function Home() {
               </div>
             </div>
             <article className="panel panel--highlight">
-              <h3 style={{ marginTop: 0 }}>Rangkaian hadiah dan pembelajaran</h3>
+           <h3 style={{ marginTop: 0 }}>Rangkaian Hadiah Juara & Komunitas Belajar</h3>
               <p style={{ marginBottom: "1rem" }}>
                 Kami menempatkan apresiasi sebagai bagian penting dari
                 pengalaman lomba, supaya anak merasa usahanya dihargai.
@@ -465,7 +463,7 @@ export default async function Home() {
       <section className="section" id="rubrik">
         <div className="container">
           <div className="section__header">
-            <h2>Rubrik Penilaian</h2>
+           <h2>Rubrik & Kriteria Penilaian Juri</h2>
           </div>
           <div className="accordion-list">
             {rubricDocs.length === 0 ? (
@@ -513,7 +511,7 @@ export default async function Home() {
       <section className="section" id="faq">
         <div className="container">
           <div className="section__header">
-            <h2>FAQ</h2>
+      <h2>Pertanyaan Umum Seputar Lomba Coding Anak (FAQ)</h2>
           </div>
           <div className="grid-2">
             {faqs.map((faq) => (

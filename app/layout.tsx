@@ -15,24 +15,20 @@ const bodyFont = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "JTC | Junior Tech Competition - Lomba Coding Anak SD SMP 2026",
+  title: "Junior Tech Competition 2026 | Lomba Coding Anak SD & SMP Nasional",
   description:
-    "Junior Tech Competition (JTC) adalah lomba coding anak untuk SD dan SMP. Ikuti kompetisi coding seru dengan Scratch, Python, dan App Inventor. Kembangkan logika, kreativitas, dan problem solving putra-putri Anda.",
+    "Ikuti Junior Tech Competition (JTC) 2026, kompetisi coding anak tingkat nasional untuk SD & SMP. Uji kemampuan Scratch, Python, dan App Inventor secara online. Daftar sekarang!",
   keywords: [
     "lomba coding anak",
-    "lomba coding",
     "kompetisi coding anak",
     "lomba programming anak",
-    "lomba scratch anak",
+    "lomba scratch sd smp",
     "lomba python anak",
-    "coding competition for kids",
     "junior tech competition",
-    "lomba coding SD",
-    "lomba coding SMP",
-    "kompetisi coding",
-    "anak coding",
-    "kursus coding anak",
-    "lomba komputer anak"
+    "lomba coding sd",
+    "lomba coding smp",
+    "belajar coding anak sd",
+    "coding competition for kids"
   ],
   authors: [{ name: "JTC Team" }],
   creator: "JTC Team",
@@ -49,9 +45,9 @@ export const metadata: Metadata = {
     apple: "/favicon.ico"
   },
   openGraph: {
-    title: "JTC | Junior Tech Competition - Lomba Coding Anak TK sampai SMP",
+    title: "Junior Tech Competition 2026 | Lomba Coding Anak SD & SMP Nasional",
     description:
-      "Kompetisi coding anak yang seru, edukatif, dan penuh tantangan kreatif untuk TK sampai SMP.",
+      "Kompetisi coding online tingkat nasional untuk anak SD hingga SMP. Kembangkan logika, kreativitas, dan portfolio anak lewat Scratch, Python, dan App Inventor.",
     type: "website",
     locale: "id_ID",
     siteName: "Junior Tech Competition",
@@ -59,9 +55,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "JTC | Junior Tech Competition - Lomba Coding Anak TK sampai SMP",
+    title: "Junior Tech Competition 2026 | Lomba Coding Anak SD & SMP Nasional",
     description:
-      "Kompetisi coding anak yang seru, edukatif, dan penuh tantangan kreatif untuk TK sampai SMP.",
+      "Kompetisi coding online tingkat nasional untuk anak SD hingga SMP. Kembangkan logika, kreativitas, dan portfolio anak lewat Scratch, Python, dan App Inventor.",
     creator: "@jtc"
   },
   robots: {
