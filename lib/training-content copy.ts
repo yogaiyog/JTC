@@ -122,15 +122,54 @@ export const questionLevels: QuestionLevel[] = [
     questions: [
       {
         id: "jii-1",
-        title: "Tangkap Sampah",
-        prompt: "Buat game bertema menjaga kebersihan",
+        title: "Game Antar Paket",
+        prompt: "Buat game mengantar paket ke tujuan sambil menghindari halangan.",
         checklist: [
-       "Buat game bertema menjaga kebersihan.",
-"Pemain menangkap sampah yang jatuh.",
-"Skor bertambah saat sampah tertangkap",
-"Tampilkan hasil akhir setelah waktu permainan selesai."
+          "Pemain bisa menggerakkan karakter dengan kontrol yang jelas.",
+          "Skor bertambah setiap paket berhasil diantar.",
+          "Permainan selesai jika waktu habis atau karakter terlalu sering menabrak."
         ]
       },
+      {
+        id: "jii-2",
+        title: "Kuis Pengetahuan Umum Anak",
+        prompt: "Buat aplikasi kuis dengan minimal 5 pertanyaan pengetahuan umum.",
+        checklist: [
+          "Setiap pertanyaan memiliki beberapa pilihan jawaban.",
+          "Tampilkan skor yang bertambah saat jawaban benar.",
+          "Setelah selesai, tampilkan hasil akhir dan jumlah jawaban benar."
+        ]
+      },
+      {
+        id: "jii-3",
+        title: "Game Menyusun Kata",
+        prompt: "Buat permainan untuk menyusun huruf menjadi kata yang benar.",
+        checklist: [
+          "Sediakan huruf acak yang bisa dipilih pemain.",
+          "Periksa apakah susunan huruf sudah sesuai target kata.",
+          "Tampilkan feedback berhasil atau coba lagi."
+        ]
+      },
+      {
+        id: "jii-4",
+        title: "Pencatat Tabungan Mingguan",
+        prompt: "Buat aplikasi sederhana untuk mencatat tabungan mingguan.",
+        checklist: [
+          "Pengguna bisa menambah nominal tabungan.",
+          "Total tabungan dihitung otomatis.",
+          "Tampilkan ringkasan jumlah tabungan yang sudah terkumpul."
+        ]
+      },
+      {
+        id: "jii-5",
+        title: "Game Jaga Taman",
+        prompt: "Buat game sederhana bertema merawat taman.",
+        checklist: [
+          "Pemain mengumpulkan item baik seperti air atau pupuk.",
+          "Skor berkurang jika mengambil item yang salah.",
+          "Tampilkan hasil akhir setelah permainan selesai."
+        ]
+      }
     ]
   },
   {
@@ -145,12 +184,51 @@ export const questionLevels: QuestionLevel[] = [
         title: "Game Penjaga Basis",
         prompt: "Buat game sederhana di mana pemain menjaga markas dari serangan musuh.",
         checklist: [
-  "Buat aplikasi kuis berisi minimal 5 pertanyaan matematika sederhana.",
-"Tampilkan skor jawaban benar.",
-"Setelah semua soal selesai, tampilkan hasil akhir.",
-"Beri feedback 'Benar' atau 'Salah' di setiap jawaban."
+          "Markas memiliki nyawa atau durability yang bisa berkurang.",
+          "Musuh datang berkala dan memberi tantangan yang jelas.",
+          "Tampilkan status skor, nyawa, dan game over."
         ]
       },
+      {
+        id: "jiii-2",
+        title: "Aplikasi Jadwal Belajar",
+        prompt: "Buat aplikasi untuk mencatat jadwal belajar harian.",
+        checklist: [
+          "Pengguna bisa menambah dan menghapus jadwal.",
+          "Setiap jadwal memiliki mata pelajaran dan jam belajar.",
+          "Tampilkan daftar jadwal yang tersusun rapi."
+        ]
+      },
+      {
+        id: "jiii-3",
+        title: "Simulasi Peminjaman Buku",
+        prompt: "Buat aplikasi sederhana untuk simulasi pinjam buku perpustakaan.",
+        checklist: [
+          "Pengguna bisa memilih buku dan mengisi nama peminjam.",
+          "Tambahkan validasi jika data belum lengkap.",
+          "Tampilkan ringkasan peminjaman sebelum dikonfirmasi."
+        ]
+      },
+      {
+        id: "jiii-4",
+        title: "Game Misi Kota Cerdas",
+        prompt: "Buat game dengan beberapa tugas berurutan untuk memperbaiki kota.",
+        checklist: [
+          "Terdapat minimal 3 misi yang harus diselesaikan berurutan.",
+          "Setiap misi memberi perubahan progress yang terlihat.",
+          "Tampilkan status selesai saat semua misi beres."
+        ]
+      },
+      {
+        id: "jiii-5",
+        title: "Simulator Toko Digital",
+        prompt: "Buat aplikasi toko digital sederhana dengan beberapa pilihan produk.",
+        checklist: [
+          "Pengguna bisa memilih produk dan jumlah pembelian.",
+          "Total harga dihitung otomatis dengan benar.",
+          "Tambahkan validasi dan ringkasan checkout sederhana."
+        ]
+      }
     ]
   }
 ];

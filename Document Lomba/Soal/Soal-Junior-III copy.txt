@@ -4,8 +4,13 @@ Level: SD Kelas 6 - SMP Kelas 2
 
 Setiap peserta mengerjakan 1 soal sesuai arahan panitia. Di bawah ini tersedia 5 pilihan soal untuk level Junior-III.
 
+## Soal 1 - Aplikasi To-Do List Pintar
+- Buat aplikasi pencatat tugas.
+- Pengguna bisa menambah, menandai selesai, dan menghapus tugas.
+- Tampilkan daftar tugas yang masih aktif.
+- Tambahkan kategori atau prioritas sederhana.
 
-## Soal 1 - Quiz Matematika
+## Soal 2 - Quiz Matematika
 - Buat aplikasi kuis berisi minimal 5 pertanyaan matematika sederhana.
 - Tampilkan skor jawaban benar.
 - Setelah semua soal selesai, tampilkan hasil akhir.
