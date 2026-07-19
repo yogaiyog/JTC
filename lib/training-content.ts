@@ -142,8 +142,8 @@ export const questionLevels: QuestionLevel[] = [
     questions: [
       {
         id: "jiii-1",
-        title: "Game Penjaga Basis",
-        prompt: "Buat game sederhana di mana pemain menjaga markas dari serangan musuh.",
+        title: "Quiz Matematika",
+        prompt: "Buat game sederhana kuis matematika dengan beberapa pertanyaan.",
         checklist: [
   "Buat aplikasi kuis berisi minimal 5 pertanyaan matematika sederhana.",
 "Tampilkan skor jawaban benar.",
