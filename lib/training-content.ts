@@ -27,7 +27,7 @@ export const trainingVideoSlides: TrainingVideo[] = [
     description: "Panduan pengerjaan soal lomba kelas 1-3 SD",
     src:
       process.env.NEXT_PUBLIC_JUNIOR_I ??
-      "https://www.youtube-nocookie.com/embed/M7lc1UVf-VE"
+   "https://www.youtube-nocookie.com/embed/iWkSJ3vwvkg"
   },
   {
     id: "ngerjain-soal",
@@ -35,7 +35,7 @@ export const trainingVideoSlides: TrainingVideo[] = [
     description: "Panduan pengerjaan soal lomba kelas 4-6 SD",
     src:
       process.env.NEXT_PUBLIC_JUNIOR_II ??
-      "https://www.youtube-nocookie.com/embed/M7lc1UVf-VE?start=32"
+     "https://www.youtube-nocookie.com/embed/fUU3T7r3wts"
   },
   {
     id: "tips-latihan",
@@ -43,7 +43,7 @@ export const trainingVideoSlides: TrainingVideo[] = [
     description: "Panduan pengerjaan soal lomba kelas 7-9 SMP",
     src:
       process.env.NEXT_PUBLIC_JUNIOR_III ??
-      "https://www.youtube-nocookie.com/embed/M7lc1UVf-VE?start=64"
+      "https://www.youtube-nocookie.com/embed/iWkSJ3vwvkg"
   }
 ];
 
