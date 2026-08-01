@@ -27,6 +27,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.6
     },
     {
+      url: "https://juniortechcompetition.web.id/team",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7
+    },
+    {
       url: "https://juniortechcompetition.web.id/latihan",
       lastModified: new Date(),
       changeFrequency: "weekly",

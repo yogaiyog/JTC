@@ -262,7 +262,8 @@ export default async function Home() {
           { href: "#harga", label: "Harga" },
           // { href: "/timeline", label: "Timeline" },
           { href: "#rubrik", label: "Rubrik" },
-          { href: "#faq", label: "FAQ" }
+          { href: "#faq", label: "FAQ" },
+          { href: "/team", label: "Tim" }
         ]}
       />
 

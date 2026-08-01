@@ -39,7 +39,8 @@ export default function TimelinePage() {
         links={[
           { href: "/", label: "Beranda" },
           { href: "#chart", label: "Chart" },
-          { href: "#detail", label: "Detail" }
+          { href: "#detail", label: "Detail" },
+          { href: "/team", label: "Tim" }
         ]}
       />
 

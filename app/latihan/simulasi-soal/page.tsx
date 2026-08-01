@@ -35,6 +35,7 @@ export default function NgerjainSoalPage() {
       <SiteHeader
         links={[
           { href: "/", label: "Beranda" },
+          { href: "/team", label: "Tim" }
         ]}
       />
 

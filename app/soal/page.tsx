@@ -66,7 +66,7 @@ export default async function SoalPage({ searchParams }: PageProps) {
   if (!isAllowed) {
     return (
       <main className="shell">
-        <SiteHeader links={[{ href: "/", label: "Beranda" }]} />
+        <SiteHeader links={[{ href: "/", label: "Beranda" }, { href: "/team", label: "Tim" }]} />
 
         <section className="section">
           <div className="container">
@@ -96,7 +96,7 @@ export default async function SoalPage({ searchParams }: PageProps) {
 
   return (
     <main className="shell">
-      <SiteHeader links={[{ href: "/", label: "Beranda" }]} />
+      <SiteHeader links={[{ href: "/", label: "Beranda" }, { href: "/team", label: "Tim" }]} />
 
       <section className="section">
         <div className="container">

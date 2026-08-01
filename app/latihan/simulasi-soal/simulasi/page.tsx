@@ -34,7 +34,8 @@ export default async function SimulasiSoalPage({ searchParams }: PageProps) {
         brandHref="/latihan/simulasi-soal"
         links={[
           { href: "/latihan/simulasi-soal", label: "Pilih Kategori" },
-          { href: "/soal", label: "Soal" }
+          { href: "/soal", label: "Soal" },
+          { href: "/team", label: "Tim" }
         ]}
       />
 
