@@ -55,7 +55,7 @@ export default function TeamPage() {
           { href: "/#harga", label: "Harga" },
           { href: "/#rubrik", label: "Rubrik" },
           { href: "/#faq", label: "FAQ" },
-          { href: "/team", label: "Tim" }
+          { href: "/team", label: "Tim Kami" }
         ]}
       />
       <section className="hero team-hero-section" id="home">

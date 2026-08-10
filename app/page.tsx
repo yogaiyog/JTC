@@ -203,7 +203,7 @@ const faqs = [
   {
     question: "Platform coding apa yang dipakai saat lomba?",
     answer:
-      "Kualifikasi menggunakan tes logika/algoritma, lalu final dapat menggunakan aplikasi yang diizinkan seperti Scratch, App Inventor, atau Python."
+      "Lomba ini menggunakan tes logika/algoritma, dapat menggunakan aplikasi yang diizinkan seperti Scratch, atau Python."
   },
   {
     question: "Apakah lomba coding ini dilakukan secara online?",
