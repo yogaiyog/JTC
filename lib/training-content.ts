@@ -27,7 +27,7 @@ export const trainingVideoSlides: TrainingVideo[] = [
     description: "Panduan pengerjaan soal lomba kelas 1-3 SD",
     src:
       process.env.NEXT_PUBLIC_JUNIOR_I ??
-   "https://www.youtube-nocookie.com/embed/iWkSJ3vwvkg"
+      "https://www.youtube-nocookie.com/embed/M7lc1UVf-VE"
   },
   {
     id: "ngerjain-soal",
@@ -35,7 +35,7 @@ export const trainingVideoSlides: TrainingVideo[] = [
     description: "Panduan pengerjaan soal lomba kelas 4-6 SD",
     src:
       process.env.NEXT_PUBLIC_JUNIOR_II ??
-     "https://www.youtube-nocookie.com/embed/fUU3T7r3wts"
+      "https://www.youtube-nocookie.com/embed/M7lc1UVf-VE?start=32"
   },
   {
     id: "tips-latihan",
@@ -43,7 +43,7 @@ export const trainingVideoSlides: TrainingVideo[] = [
     description: "Panduan pengerjaan soal lomba kelas 7-9 SMP",
     src:
       process.env.NEXT_PUBLIC_JUNIOR_III ??
-      "https://www.youtube-nocookie.com/embed/iWkSJ3vwvkg"
+      "https://www.youtube-nocookie.com/embed/M7lc1UVf-VE?start=64"
   }
 ];
 
@@ -110,7 +110,48 @@ export const questionLevels: QuestionLevel[] = [
           "Tambahkan minimal 1 rintangan yang harus dihindari.",
           "Tampilkan pesan berhasil saat sampai tujuan."
         ]
-      }
+      },
+      // Tambahan untuk junior-i (SD Kelas 1-3)
+{
+  id: "ji-6",
+  title: "Pilih Warna Kesukaan",
+  prompt: "Buat aplikasi sederhana untuk memilih warna kesukaan.",
+  checklist: [
+    "Tampilkan minimal 3 pilihan warna berupa tombol atau kotak warna.",
+    "Saat salah satu warna dipilih, tampilkan nama warna tersebut.",
+    "Tambahkan tampilan yang berubah sesuai warna yang dipilih."
+  ]
+},
+{
+  id: "ji-8",
+  title: "Roda Emosi",
+  prompt: "Buat aplikasi sederhana untuk mengenali ekspresi wajah/emosi.",
+  checklist: [
+    "Tampilkan minimal 3 pilihan emosi (senang, sedih, marah).",
+    "Saat emosi dipilih, tampilkan gambar atau teks yang sesuai.",
+    "Tambahkan pesan sederhana yang menjelaskan emosi tersebut."
+  ]
+},
+{
+  id: "ji-9",
+  title: "Susun Balok Angka",
+  prompt: "Buat permainan sederhana menyusun angka dari kecil ke besar.",
+  checklist: [
+    "Tampilkan minimal 3 balok berisi angka acak.",
+    "Pemain bisa memilih urutan angka yang benar.",
+    "Tampilkan pesan berhasil jika urutan sudah benar."
+  ]
+},
+{
+  id: "ji-10",
+  title: "Kebersihan Diri",
+  prompt: "Buat aplikasi interaktif tentang kebiasaan bersih diri.",
+  checklist: [
+    "Tampilkan minimal 3 kegiatan (cuci tangan, sikat gigi, mandi).",
+    "Saat kegiatan dipilih, tampilkan pesan pujian atau penjelasan.",
+    "Gunakan tampilan sederhana yang mudah dipahami anak-anak."
+  ]
+}
     ]
   },
   {
@@ -122,15 +163,105 @@ export const questionLevels: QuestionLevel[] = [
     questions: [
       {
         id: "jii-1",
-        title: "Tangkap Sampah",
-        prompt: "Buat game bertema menjaga kebersihan",
+        title: "Game Antar Paket",
+        prompt: "Buat game mengantar paket ke tujuan sambil menghindari halangan.",
         checklist: [
-       "Buat game bertema menjaga kebersihan.",
-"Pemain menangkap sampah yang jatuh.",
-"Skor bertambah saat sampah tertangkap",
-"Tampilkan hasil akhir setelah waktu permainan selesai."
+          "Pemain bisa menggerakkan karakter dengan kontrol yang jelas.",
+          "Skor bertambah setiap paket berhasil diantar.",
+          "Permainan selesai jika waktu habis atau karakter terlalu sering menabrak."
         ]
       },
+      {
+        id: "jii-2",
+        title: "Kuis Pengetahuan Umum Anak",
+        prompt: "Buat aplikasi kuis dengan minimal 5 pertanyaan pengetahuan umum.",
+        checklist: [
+          "Setiap pertanyaan memiliki beberapa pilihan jawaban.",
+          "Tampilkan skor yang bertambah saat jawaban benar.",
+          "Setelah selesai, tampilkan hasil akhir dan jumlah jawaban benar."
+        ]
+      },
+      {
+        id: "jii-3",
+        title: "Game Menyusun Kata",
+        prompt: "Buat permainan untuk menyusun huruf menjadi kata yang benar.",
+        checklist: [
+          "Sediakan huruf acak yang bisa dipilih pemain.",
+          "Periksa apakah susunan huruf sudah sesuai target kata.",
+          "Tampilkan feedback berhasil atau coba lagi."
+        ]
+      },
+      {
+        id: "jii-4",
+        title: "Pencatat Tabungan Mingguan",
+        prompt: "Buat aplikasi sederhana untuk mencatat tabungan mingguan.",
+        checklist: [
+          "Pengguna bisa menambah nominal tabungan.",
+          "Total tabungan dihitung otomatis.",
+          "Tampilkan ringkasan jumlah tabungan yang sudah terkumpul."
+        ]
+      },
+      {
+        id: "jii-5",
+        title: "Game Jaga Taman",
+        prompt: "Buat game sederhana bertema merawat taman.",
+        checklist: [
+          "Pemain mengumpulkan item baik seperti air atau pupuk.",
+          "Skor berkurang jika mengambil item yang salah.",
+          "Tampilkan hasil akhir setelah permainan selesai."
+        ]
+      },
+      // Tambahan untuk junior-ii (SD Kelas 4-6)
+{
+  id: "jii-6",
+  title: "Game Kumpulkan Koin",
+  prompt: "Buat game sederhana mengumpulkan koin sambil menghindari rintangan.",
+  checklist: [
+    "Pemain bisa menggerakkan karakter dengan kontrol yang jelas.",
+    "Skor bertambah setiap koin berhasil diambil.",
+    "Permainan berakhir jika karakter menabrak rintangan sebanyak batas tertentu."
+  ]
+},
+{
+  id: "jii-7",
+  title: "Kalkulator Belanja Sederhana",
+  prompt: "Buat aplikasi untuk menghitung total belanja beberapa barang.",
+  checklist: [
+    "Pengguna bisa menambah barang beserta harga dan jumlahnya.",
+    "Total belanja dihitung otomatis.",
+    "Tampilkan ringkasan daftar barang dan total akhir."
+  ]
+},
+{
+  id: "jii-8",
+  title: "Game Tebak Bendera",
+  prompt: "Buat kuis untuk menebak nama negara dari gambar benderanya.",
+  checklist: [
+    "Sediakan minimal 5 soal bendera negara.",
+    "Setiap soal punya beberapa pilihan jawaban.",
+    "Tampilkan skor akhir setelah semua soal dijawab."
+  ]
+},
+{
+  id: "jii-9",
+  title: "Pengatur Waktu Belajar",
+  prompt: "Buat aplikasi timer sederhana untuk sesi belajar dan istirahat.",
+  checklist: [
+    "Pengguna bisa memulai dan menghentikan timer.",
+    "Tampilkan hitung mundur waktu yang jelas.",
+    "Tampilkan notifikasi saat waktu belajar atau istirahat selesai."
+  ]
+},
+{
+  id: "jii-10",
+  title: "Game Sortir Sampah",
+  prompt: "Buat game sederhana memilah sampah organik dan anorganik.",
+  checklist: [
+    "Tampilkan beberapa jenis sampah yang harus dipilah pemain.",
+    "Skor bertambah jika sampah dimasukkan ke tempat yang benar.",
+    "Tampilkan hasil akhir berupa jumlah sampah yang berhasil dipilah dengan benar."
+  ]
+}
     ]
   },
   {
@@ -142,15 +273,105 @@ export const questionLevels: QuestionLevel[] = [
     questions: [
       {
         id: "jiii-1",
-        title: "Quiz Matematika",
-        prompt: "Buat game sederhana kuis matematika dengan beberapa pertanyaan.",
+        title: "Game Penjaga Basis",
+        prompt: "Buat game sederhana di mana pemain menjaga markas dari serangan musuh.",
         checklist: [
-  "Buat aplikasi kuis berisi minimal 5 pertanyaan matematika sederhana.",
-"Tampilkan skor jawaban benar.",
-"Setelah semua soal selesai, tampilkan hasil akhir.",
-"Beri feedback 'Benar' atau 'Salah' di setiap jawaban."
+          "Markas memiliki nyawa atau durability yang bisa berkurang.",
+          "Musuh datang berkala dan memberi tantangan yang jelas.",
+          "Tampilkan status skor, nyawa, dan game over."
         ]
       },
+      {
+        id: "jiii-2",
+        title: "Aplikasi Jadwal Belajar",
+        prompt: "Buat aplikasi untuk mencatat jadwal belajar harian.",
+        checklist: [
+          "Pengguna bisa menambah dan menghapus jadwal.",
+          "Setiap jadwal memiliki mata pelajaran dan jam belajar.",
+          "Tampilkan daftar jadwal yang tersusun rapi."
+        ]
+      },
+      {
+        id: "jiii-3",
+        title: "Simulasi Peminjaman Buku",
+        prompt: "Buat aplikasi sederhana untuk simulasi pinjam buku perpustakaan.",
+        checklist: [
+          "Pengguna bisa memilih buku dan mengisi nama peminjam.",
+          "Tambahkan validasi jika data belum lengkap.",
+          "Tampilkan ringkasan peminjaman sebelum dikonfirmasi."
+        ]
+      },
+      {
+        id: "jiii-4",
+        title: "Game Misi Kota Cerdas",
+        prompt: "Buat game dengan beberapa tugas berurutan untuk memperbaiki kota.",
+        checklist: [
+          "Terdapat minimal 3 misi yang harus diselesaikan berurutan.",
+          "Setiap misi memberi perubahan progress yang terlihat.",
+          "Tampilkan status selesai saat semua misi beres."
+        ]
+      },
+      {
+        id: "jiii-5",
+        title: "Simulator Toko Digital",
+        prompt: "Buat aplikasi toko digital sederhana dengan beberapa pilihan produk.",
+        checklist: [
+          "Pengguna bisa memilih produk dan jumlah pembelian.",
+          "Total harga dihitung otomatis dengan benar.",
+          "Tambahkan validasi dan ringkasan checkout sederhana."
+        ]
+      },
+      // Tambahan untuk junior-iii (SMP Kelas 7-9)
+{
+  id: "jiii-6",
+  title: "Aplikasi Pengelola Uang Saku",
+  prompt: "Buat aplikasi untuk mencatat pemasukan dan pengeluaran uang saku.",
+  checklist: [
+    "Pengguna bisa menambah data pemasukan dan pengeluaran.",
+    "Saldo akhir dihitung otomatis dari total pemasukan dikurangi pengeluaran.",
+    "Tambahkan validasi agar pengeluaran tidak melebihi saldo yang tersedia."
+  ]
+},
+{
+  id: "jiii-7",
+  title: "Game Labirin Waktu",
+  prompt: "Buat game labirin sederhana dengan batas waktu penyelesaian.",
+  checklist: [
+    "Pemain bisa menggerakkan karakter menuju titik keluar labirin.",
+    "Tampilkan hitung mundur waktu yang berkurang secara real-time.",
+    "Tampilkan status menang jika sampai keluar, atau kalah jika waktu habis."
+  ]
+},
+{
+  id: "jiii-8",
+  title: "Simulasi Pendaftaran Ekstrakurikuler",
+  prompt: "Buat aplikasi sederhana untuk pendaftaran ekstrakurikuler sekolah.",
+  checklist: [
+    "Pengguna bisa memilih ekstrakurikuler dari daftar yang tersedia.",
+    "Tambahkan validasi agar data nama dan kelas wajib diisi.",
+    "Tampilkan ringkasan pendaftaran beserta status berhasil."
+  ]
+},
+{
+  id: "jiii-9",
+  title: "Game Manajemen Sumber Daya",
+  prompt: "Buat game sederhana mengelola sumber daya (air, makanan, energi) suatu desa.",
+  checklist: [
+    "Setiap sumber daya memiliki nilai yang berubah seiring waktu.",
+    "Pemain bisa melakukan aksi untuk menambah salah satu sumber daya.",
+    "Tampilkan kondisi gagal jika salah satu sumber daya habis."
+  ]
+},
+{
+  id: "jiii-10",
+  title: "Aplikasi Antrian Layanan",
+  prompt: "Buat aplikasi sederhana simulasi sistem antrian pelayanan.",
+  checklist: [
+    "Pengguna bisa mengambil nomor antrian baru.",
+    "Sistem menampilkan nomor antrian yang sedang dilayani dan bisa dipanggil selanjutnya.",
+    "Tambahkan ringkasan jumlah antrian yang sudah dan belum dilayani."
+  ]
+}
     ]
   }
 ];
