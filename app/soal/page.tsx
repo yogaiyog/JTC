@@ -1,7 +1,10 @@
 import { SiteHeader } from "@/components/site-header";
+import { SoalEmbedCarousel } from "@/components/soal-embed-carousel";
 import {
-  URL_JUNIOR_I,
-  URL_JUNIOR_II,
+  URL_JUNIOR_I_1,
+  URL_JUNIOR_I_2,
+  URL_JUNIOR_II_1,
+  URL_JUNIOR_II_2,
   URL_JUNIOR_III
 } from "@/lib/url-contoh-karya";
 
@@ -15,6 +18,7 @@ type SoalShowcase = {
   description: string;
   checklist: string[];
   exampleEmbed?: string;
+  exampleEmbeds?: string[];
   runtimeHref?: string;
 };
 
@@ -28,7 +32,7 @@ const soalShowcase: SoalShowcase[] = [
       "Saat hewan ditekan, muncul suara atau teks nama hewan.",
       "Tambahkan tampilan yang ceria dan mudah dipahami."
     ],
-    exampleEmbed: URL_JUNIOR_I
+    exampleEmbeds: [URL_JUNIOR_I_1, URL_JUNIOR_I_2]
   },
   {
     level: "Junior-II",
@@ -39,7 +43,7 @@ const soalShowcase: SoalShowcase[] = [
       "Skor bertambah saat koin diambil.",
       "Permainan berakhir jika menyentuh musuh atau waktu habis."
     ],
-    exampleEmbed: URL_JUNIOR_II
+    exampleEmbeds: [URL_JUNIOR_II_1, URL_JUNIOR_II_2]
   },
   {
     level: "Junior-III",
@@ -104,6 +108,28 @@ export default async function SoalPage({ searchParams }: PageProps) {
             <h2>Soal dan Contoh Project</h2>
           </div>
 
+          <div className="soal-submission-banner">
+            <div className="soal-submission-banner__content">
+              <span className="soal-submission-banner__icon" aria-hidden="true">⚠️</span>
+              <div className="soal-submission-banner__text">
+                <h3>Peringatan</h3>
+                <p>
+                  Sebelum memulai, buka link submisi dan cek upload file terlebih dahulu untuk memastikan tidak ada kendala.
+                </p>
+              </div>
+            </div>
+            <div className="soal-submission-banner__action">
+              <a
+                href="https://forms.gle/etbJMxwgDfJJg5za9"
+                target="_blank"
+                rel="noreferrer"
+                className="btn btn--primary"
+              >
+                Link Submisi Karya
+              </a>
+            </div>
+          </div>
+
           <div className="soal-showcase-list">
             {soalShowcase.map((item) => (
               <article className="section-card soal-showcase-card" key={`${item.level}-${item.title}`}>
@@ -127,12 +153,9 @@ export default async function SoalPage({ searchParams }: PageProps) {
                     <span>Contoh Project</span>
                     <strong>{item.level}</strong>
                   </div>
-                  {item.exampleEmbed ? (
-                    <div
-                      className="soal-showcase-card__embed"
-                      dangerouslySetInnerHTML={{ __html: item.exampleEmbed }}
-                    />
-                  ) : null}
+                  <SoalEmbedCarousel
+                    embeds={item.exampleEmbeds ?? (item.exampleEmbed ? [item.exampleEmbed] : [])}
+                  />
                   {item.runtimeHref ? (
                     <div className="webcontainer-card">
                       <div className="webcontainer-card__header">

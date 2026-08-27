@@ -20,8 +20,8 @@ export default async function SoalRuntimePage({ searchParams }: PageProps) {
         <section className="section">
           <div className="container">
             <div className="section__header">
-              <h2>Runtime Junior-III</h2>
-              <p>Masukkan password untuk membuka preview runtime Node.js.</p>
+              <h2>Terminal Base Junior-III</h2>
+              <p>Masukkan password untuk membuka preview simulasi Python.</p>
             </div>
             <article className="panel">
               <form method="get" className="grid-2" style={{ gap: "0.75rem" }}>

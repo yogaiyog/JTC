@@ -33,7 +33,7 @@ function bersihkanLayar() {
 }
 
 function tampilkanMenu() {
-  console.log("========= MENU RESTO SENSASI =========");
+  console.log("========= MENU JTC FOOD =========");
   console.log("No   Nama Makanan         Harga");
   console.log("--------------------------------------");
   for (const nomor in menuMakanan) {
